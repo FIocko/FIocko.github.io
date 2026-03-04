@@ -1,0 +1,1016 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <!-- ============================================
+         META & CONFIGURATION
+         ============================================ -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Portfolio professionnel BTS SIO option SISR - Administration Systèmes et Réseaux">
+    <meta name="author" content="Adam Mzili">
+    <title>Portfolio | BTS SIO SISR</title>
+
+    <!-- Google Fonts - Inter + JetBrains Mono -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+    <!-- Feuille de style principale -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <!-- ============================================
+         SIDEBAR NAVIGATION
+         Barre latérale fixe avec icônes SVG.
+         Se réduit en menu hamburger sur mobile.
+         ============================================ -->
+    <nav class="sidebar" id="sidebar" role="navigation" aria-label="Navigation principale">
+        <!-- Logo / Initiales -->
+        <div class="sidebar-brand">
+            <span class="brand-icon" aria-hidden="true">AM</span>
+        </div>
+
+        <!-- Liens de navigation -->
+        <ul class="nav-links" role="list">
+            <li>
+                <a href="#accueil" class="nav-link active" data-section="accueil" aria-label="Accueil">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
+                        <polyline points="9 22 9 12 15 12 15 22"/>
+                    </svg>
+                    <span class="nav-text">Accueil</span>
+                </a>
+            </li>
+            <li>
+                <a href="#about" class="nav-link" data-section="about" aria-label="Qui suis-je">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                        <circle cx="12" cy="7" r="4"/>
+                    </svg>
+                    <span class="nav-text">Qui suis-je</span>
+                </a>
+            </li>
+            <li>
+                <a href="#competences" class="nav-link" data-section="competences" aria-label="Compétences">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <polyline points="16 18 22 12 16 6"/>
+                        <polyline points="8 6 2 12 8 18"/>
+                    </svg>
+                    <span class="nav-text">Compétences</span>
+                </a>
+            </li>
+            <li>
+                <a href="#stages" class="nav-link" data-section="stages" aria-label="Stages">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="2" y="7" width="20" height="14" rx="2" ry="2"/>
+                        <path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/>
+                    </svg>
+                    <span class="nav-text">Stages</span>
+                </a>
+            </li>
+            <li>
+                <a href="#options" class="nav-link" data-section="options" aria-label="Options SIO">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span class="nav-text">Options SIO</span>
+                </a>
+            </li>
+            <li>
+                <a href="#veille" class="nav-link" data-section="veille" aria-label="Veille Technologique">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <circle cx="12" cy="12" r="10"/>
+                        <line x1="2" y1="12" x2="22" y2="12"/>
+                        <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                    </svg>
+                    <span class="nav-text">Veille Techno</span>
+                </a>
+            </li>
+            <li>
+                <a href="#contact" class="nav-link" data-section="contact" aria-label="Contact">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    <span class="nav-text">Contact</span>
+                </a>
+            </li>
+        </ul>
+
+        <!-- Indicateur de statut -->
+        <div class="sidebar-footer">
+            <div class="status-indicator">
+                <span class="status-dot" aria-hidden="true"></span>
+                <span class="status-text">En ligne</span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Bouton mode sombre -->
+    <button class="theme-toggle" id="themeToggle" aria-label="Basculer le mode sombre">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
+        </svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="5"/>
+            <line x1="12" y1="1" x2="12" y2="3"/>
+            <line x1="12" y1="21" x2="12" y2="23"/>
+            <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
+            <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
+            <line x1="1" y1="12" x2="3" y2="12"/>
+            <line x1="21" y1="12" x2="23" y2="12"/>
+            <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
+            <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
+        </svg>
+    </button>
+
+    <!-- Bouton hamburger mobile -->
+    <button class="mobile-toggle" id="mobileToggle" aria-label="Ouvrir le menu de navigation" aria-expanded="false">
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+        <span class="toggle-bar"></span>
+    </button>
+
+    <!-- Overlay mobile -->
+    <div class="sidebar-overlay" id="sidebarOverlay" aria-hidden="true"></div>
+
+    <!-- ============================================
+         CONTENU PRINCIPAL
+         ============================================ -->
+    <main class="main" id="main">
+
+        <!-- ========================================
+             SECTION ACCUEIL / HERO
+             Animation particules + typing effect
+             ======================================== -->
+        <section id="accueil" class="section hero-section">
+            <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+            <div class="hero-content reveal">
+                <div class="hero-badge">
+                    <span class="badge-dot" aria-hidden="true"></span>
+                    BTS SIO option SISR
+                </div>
+
+                <h1 class="hero-title">
+                    <span class="hero-greeting">Bonjour, je suis</span>
+                    <span class="hero-name">Adam Mzili</span>
+                </h1>
+
+                <div class="typing-wrapper" aria-live="polite">
+                    <span class="typing-prefix" aria-hidden="true">&gt;&nbsp;</span>
+                    <span id="typingText" class="typing-text"></span>
+                    <span class="typing-cursor" aria-hidden="true"></span>
+                </div>
+
+                <p class="hero-description">
+                    &Eacute;tudiant passionn&eacute; par l&rsquo;administration des syst&egrave;mes et r&eacute;seaux,
+                    en qu&ecirc;te de solutions IT performantes, s&eacute;curis&eacute;es et innovantes.
+                </p>
+
+                <div class="hero-actions">
+                    <a href="#contact" class="btn btn-primary">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                            <polyline points="22,6 12,13 2,6"/>
+                        </svg>
+                        Me contacter
+                    </a>
+                    <!-- INSTRUCTION : Remplacer href par le chemin réel du CV PDF -->
+                    <a href="assets/cv.pdf" class="btn btn-outline" download aria-label="Télécharger mon CV au format PDF">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        T&eacute;l&eacute;charger mon CV
+                    </a>
+                </div>
+            </div>
+
+            <!-- Indicateur de scroll -->
+            <div class="scroll-indicator" aria-hidden="true">
+                <span class="scroll-label">Scroll</span>
+                <div class="scroll-line"></div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION QUI SUIS-JE
+             ======================================== -->
+        <section id="about" class="section section-alt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">01 &mdash; Profil</span>
+                    <h2 class="section-title">Qui suis-je</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <div class="about-grid">
+                    <div class="about-content reveal">
+                        <p class="about-intro">
+                            Actuellement en <strong>BTS Services Informatiques aux Organisations</strong>, option
+                            <strong>Solutions d&rsquo;Infrastructure, Syst&egrave;mes et R&eacute;seaux (SISR)</strong>,
+                            je me forme aux m&eacute;tiers de l&rsquo;administration syst&egrave;mes et r&eacute;seaux
+                            avec une approche rigoureuse et professionnelle.
+                        </p>
+                        <p>
+                            Ma vision du m&eacute;tier d&rsquo;administrateur syst&egrave;mes et r&eacute;seaux repose sur trois
+                            piliers fondamentaux : la <strong>s&eacute;curit&eacute;</strong> des infrastructures,
+                            la <strong>performance</strong> des syst&egrave;mes et la <strong>disponibilit&eacute;</strong>
+                            des services. Dans un contexte o&ugrave; la transformation num&eacute;rique s&rsquo;acc&eacute;l&egrave;re,
+                            ma&icirc;triser ces enjeux est essentiel.
+                        </p>
+                        <p>
+                            Je m&rsquo;int&eacute;resse particuli&egrave;rement &agrave; la virtualisation, &agrave; la
+                            cybers&eacute;curit&eacute; et aux architectures cloud, domaines en pleine expansion
+                            qui repr&eacute;sentent l&rsquo;avenir de l&rsquo;IT.
+                        </p>
+
+                        <div class="about-stats">
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="2">0</span>
+                                <span class="stat-label">Ann&eacute;es de formation</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="2">0</span>
+                                <span class="stat-label">Stages r&eacute;alis&eacute;s</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-target="10">0</span>
+                                <span class="stat-label">Projets techniques</span>
+                            </div>
+                        </div>
+
+                        <!-- INSTRUCTION : Remplacer href par le chemin réel du CV PDF -->
+                        <a href="assets/cv.pdf" class="btn btn-primary" download aria-label="Télécharger mon CV au format PDF">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                                <polyline points="7 10 12 15 17 10"/>
+                                <line x1="12" y1="15" x2="12" y2="3"/>
+                            </svg>
+                            T&eacute;l&eacute;charger mon CV
+                        </a>
+                    </div>
+
+                    <div class="about-visual reveal">
+                        <div class="about-card-stack">
+                            <div class="about-card">
+                                <div class="card-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                        <line x1="8" y1="21" x2="16" y2="21"/>
+                                        <line x1="12" y1="17" x2="12" y2="21"/>
+                                    </svg>
+                                </div>
+                                <h3>Infrastructure IT</h3>
+                                <p>Configuration et maintenance de syst&egrave;mes serveurs et postes clients</p>
+                            </div>
+                            <div class="about-card">
+                                <div class="card-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                    </svg>
+                                </div>
+                                <h3>Cybers&eacute;curit&eacute;</h3>
+                                <p>Protection des donn&eacute;es et s&eacute;curisation des infrastructures r&eacute;seau</p>
+                            </div>
+                            <div class="about-card">
+                                <div class="card-icon-wrapper">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                        <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                        <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                        <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                        <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                    </svg>
+                                </div>
+                                <h3>R&eacute;seaux</h3>
+                                <p>D&eacute;ploiement et administration d&rsquo;architectures r&eacute;seau complexes</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION COMP&Eacute;TENCES
+             Barres animées par catégorie
+             ======================================== -->
+        <section id="competences" class="section skills-section-wrapper">
+            <canvas id="shootingStarsCanvas" aria-hidden="true"></canvas>
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">02 &mdash; Expertise</span>
+                    <h2 class="section-title">Comp&eacute;tences</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <div class="skills-grid">
+                    <!-- Réseaux -->
+                    <div class="skill-card" data-skill="reseaux">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <line x1="2" y1="12" x2="22" y2="12"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>R&eacute;seaux</h3>
+                                <span class="skill-percentage" data-target="75">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="75" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>TCP/IP</li>
+                            <li>VLAN</li>
+                            <li>Routage</li>
+                            <li>Switching</li>
+                            <li>Wi-Fi</li>
+                        </ul>
+                    </div>
+
+                    <!-- Systèmes -->
+                    <div class="skill-card" data-skill="systemes">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Syst&egrave;mes</h3>
+                                <span class="skill-percentage" data-target="70">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="70" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>Windows Server</li>
+                            <li>Linux</li>
+                            <li>Active Directory</li>
+                            <li>GPO</li>
+                        </ul>
+                    </div>
+
+                    <!-- Virtualisation -->
+                    <div class="skill-card" data-skill="virtualisation">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                    <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                    <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Virtualisation</h3>
+                                <span class="skill-percentage" data-target="65">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="65" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>VMware</li>
+                            <li>Hyper-V</li>
+                            <li>Docker</li>
+                            <li>Proxmox</li>
+                        </ul>
+                    </div>
+
+                    <!-- Cybersécurité -->
+                    <div class="skill-card" data-skill="cybersecurite">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Cybers&eacute;curit&eacute;</h3>
+                                <span class="skill-percentage" data-target="60">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="60" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>Firewall</li>
+                            <li>VPN</li>
+                            <li>Chiffrement</li>
+                            <li>Audit</li>
+                        </ul>
+                    </div>
+
+                    <!-- Maintenance -->
+                    <div class="skill-card" data-skill="maintenance">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Maintenance</h3>
+                                <span class="skill-percentage" data-target="80">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="80" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>Diagnostic</li>
+                            <li>D&eacute;pannage</li>
+                            <li>Hardware</li>
+                            <li>Pr&eacute;ventif</li>
+                        </ul>
+                    </div>
+
+                    <!-- Support Utilisateur -->
+                    <div class="skill-card" data-skill="support">
+                        <div class="skill-header">
+                            <div class="skill-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                    <circle cx="9" cy="7" r="4"/>
+                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                                </svg>
+                            </div>
+                            <div class="skill-info">
+                                <h3>Support Utilisateur</h3>
+                                <span class="skill-percentage" data-target="85">0%</span>
+                            </div>
+                        </div>
+                        <div class="skill-bar">
+                            <div class="skill-progress" data-width="85" role="progressbar" aria-valuenow="85" aria-valuemin="0" aria-valuemax="100"></div>
+                        </div>
+                        <ul class="skill-tags">
+                            <li>Helpdesk</li>
+                            <li>GLPI</li>
+                            <li>Communication</li>
+                            <li>Documentation</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- INSTRUCTION : Remplacer href par le chemin du fichier Excel -->
+                <div class="skills-download reveal">
+                    <a href="assets/competences.xlsx" class="btn btn-outline" download aria-label="Télécharger le tableau de compétences">
+                        <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+                            <polyline points="7 10 12 15 17 10"/>
+                            <line x1="12" y1="15" x2="12" y2="3"/>
+                        </svg>
+                        T&eacute;l&eacute;charger le tableau de comp&eacute;tences (Excel)
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION STAGES
+             Timeline verticale animée
+             ======================================== -->
+        <section id="stages" class="section section-alt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">03 &mdash; Exp&eacute;rience</span>
+                    <h2 class="section-title">Stages en entreprise</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <div class="timeline">
+                    <!-- Stage 2 (le plus récent en premier) -->
+                    <div class="timeline-item reveal" data-position="right">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge">2&egrave;me ann&eacute;e</div>
+                            <h3 class="timeline-title">La Goutte d&rsquo;Ordinateur</h3>
+                            <span class="timeline-period">Janvier &mdash; F&eacute;vrier 2026</span>
+
+                            <div class="timeline-section">
+                                <h4>Contexte</h4>
+                                <p>
+                                    Second stage au sein de l&rsquo;association La Goutte d&rsquo;Ordinateur, structure &agrave; vocation
+                                    sociale sp&eacute;cialis&eacute;e dans le reconditionnement informatique et l&rsquo;inclusion num&eacute;rique.
+                                    Prise en charge de missions techniques avanc&eacute;es au sein de l&rsquo;&eacute;quipe infrastructure,
+                                    avec une responsabilit&eacute; accrue sur l&rsquo;administration syst&egrave;mes et r&eacute;seaux.
+                                </p>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Missions techniques</h4>
+                                <ul>
+                                    <li>Configuration DHCP avec r&eacute;servations IP pour l&rsquo;ensemble du parc informatique</li>
+                                    <li>Cr&eacute;ation de partages r&eacute;seau s&eacute;curis&eacute;s avec droits NTFS adapt&eacute;s par service</li>
+                                    <li>Mise en place de GPO (strat&eacute;gies de groupe) pour le d&eacute;ploiement de configurations</li>
+                                    <li>Gestion VLAN et adressage IP statique sur les &eacute;quipements r&eacute;seau</li>
+                                    <li>Sauvegarde des configurations firewall et switch</li>
+                                    <li>Gestion Active Directory : cr&eacute;ation de comptes, unit&eacute;s d&rsquo;organisation et groupes</li>
+                                    <li>R&eacute;organisation des dossiers partag&eacute;s selon les groupes Active Directory</li>
+                                    <li>Sauvegarde serveur et gestion des droits d&rsquo;acc&egrave;s</li>
+                                    <li>Supervision des ressources syst&egrave;me (CPU, RAM, disque)</li>
+                                    <li>R&eacute;daction de documentation technique des proc&eacute;dures mises en place</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Outils utilis&eacute;s</h4>
+                                <div class="tool-tags">
+                                    <span class="tool-tag">Windows Server</span>
+                                    <span class="tool-tag">Active Directory</span>
+                                    <span class="tool-tag">pfSense</span>
+                                    <span class="tool-tag">GLPI</span>
+                                    <span class="tool-tag">VMware</span>
+                                    <span class="tool-tag">GPO</span>
+                                    <span class="tool-tag">DHCP / DNS</span>
+                                    <span class="tool-tag">Switch manag&eacute;</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>R&eacute;sultats obtenus</h4>
+                                <p>
+                                    Centralisation de la gestion des utilisateurs via Active Directory, s&eacute;curisation
+                                    des acc&egrave;s aux ressources partag&eacute;es gr&acirc;ce aux droits NTFS et GPO,
+                                    am&eacute;lioration de la segmentation r&eacute;seau par la mise en place de VLAN,
+                                    et cr&eacute;ation d&rsquo;une documentation technique exploitable par l&rsquo;&eacute;quipe.
+                                </p>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Comp&eacute;tences d&eacute;velopp&eacute;es</h4>
+                                <p>
+                                    Administration Windows Server et Active Directory, gestion avanc&eacute;e des droits NTFS,
+                                    configuration r&eacute;seau (VLAN, DHCP, adressage IP), rigueur dans la documentation
+                                    et autonomie dans la gestion d&rsquo;une infrastructure multi-postes.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Stage 1 -->
+                    <div class="timeline-item reveal" data-position="left">
+                        <div class="timeline-marker" aria-hidden="true">
+                            <span class="marker-dot"></span>
+                        </div>
+                        <div class="timeline-content">
+                            <div class="timeline-badge">1&egrave;re ann&eacute;e</div>
+                            <h3 class="timeline-title">La Goutte d&rsquo;Ordinateur</h3>
+                            <span class="timeline-period">Mai &mdash; Juin 2025</span>
+
+                            <div class="timeline-section">
+                                <h4>Contexte</h4>
+                                <p>
+                                    Premier stage r&eacute;alis&eacute; au sein de l&rsquo;association La Goutte d&rsquo;Ordinateur,
+                                    structure engag&eacute;e dans le reconditionnement informatique et l&rsquo;acc&egrave;s au num&eacute;rique
+                                    pour tous. D&eacute;couverte de l&rsquo;environnement professionnel et premi&egrave;res missions
+                                    de support technique et maintenance du parc informatique.
+                                </p>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Missions techniques</h4>
+                                <ul>
+                                    <li>Diagnostic mat&eacute;riel et r&eacute;paration de postes informatiques (fixes et portables)</li>
+                                    <li>D&eacute;ploiement de Windows 10 / Windows 11, y compris sur machines non compatibles</li>
+                                    <li>R&eacute;initialisation et mise &agrave; jour BIOS sur diff&eacute;rents mod&egrave;les de cartes m&egrave;res</li>
+                                    <li>Support utilisateurs : r&eacute;solution de probl&egrave;mes d&rsquo;impression r&eacute;seau, internet et Wi-Fi</li>
+                                    <li>Tests r&eacute;seau RJ45 et diagnostic c&acirc;blage</li>
+                                    <li>Reconditionnement mat&eacute;riel et pr&eacute;paration de postes pour redistribution</li>
+                                    <li>Installation et configuration de syst&egrave;mes d&rsquo;exploitation Linux (Mint, Ubuntu)</li>
+                                </ul>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Outils utilis&eacute;s</h4>
+                                <div class="tool-tags">
+                                    <span class="tool-tag">Windows 10 / 11</span>
+                                    <span class="tool-tag">Linux Mint</span>
+                                    <span class="tool-tag">Ubuntu</span>
+                                    <span class="tool-tag">GLPI</span>
+                                    <span class="tool-tag">Clonezilla</span>
+                                    <span class="tool-tag">Testeur RJ45</span>
+                                </div>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>R&eacute;sultats obtenus</h4>
+                                <p>
+                                    Remise en service de nombreux postes informatiques pour les b&eacute;n&eacute;ficiaires
+                                    de l&rsquo;association, r&eacute;duction du temps de pr&eacute;paration des machines
+                                    gr&acirc;ce &agrave; la ma&icirc;trise des outils de clonage et de d&eacute;ploiement.
+                                </p>
+                            </div>
+
+                            <div class="timeline-section">
+                                <h4>Comp&eacute;tences d&eacute;velopp&eacute;es</h4>
+                                <p>
+                                    Autonomie dans le diagnostic mat&eacute;riel, rigueur dans le suivi des interventions via GLPI,
+                                    ma&icirc;trise du d&eacute;ploiement multi-OS et d&eacute;veloppement des capacit&eacute;s
+                                    de communication avec les utilisateurs non techniques.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION OPTIONS BTS SIO
+             Comparatif SISR vs SLAM
+             ======================================== -->
+        <section id="options" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">04 &mdash; Formation</span>
+                    <h2 class="section-title">Options BTS SIO</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <p class="section-intro reveal">
+                    Le BTS SIO propose deux sp&eacute;cialisations distinctes. Mon choix de l&rsquo;option <strong>SISR</strong>
+                    s&rsquo;inscrit dans une logique de carri&egrave;re orient&eacute;e vers l&rsquo;administration d&rsquo;infrastructures
+                    et la s&eacute;curisation des syst&egrave;mes d&rsquo;information.
+                </p>
+
+                <div class="options-compare reveal">
+                    <!-- Carte SISR -->
+                    <div class="option-card option-sisr selected">
+                        <div class="option-badge">Mon choix</div>
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                <line x1="6" y1="18" x2="6.01" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3>SISR</h3>
+                        <p class="option-full">Solutions d&rsquo;Infrastructure, Syst&egrave;mes et R&eacute;seaux</p>
+
+                        <ul class="option-list">
+                            <li>Administration des syst&egrave;mes (Windows Server, Linux)</li>
+                            <li>Configuration et maintenance des r&eacute;seaux</li>
+                            <li>Virtualisation et cloud computing</li>
+                            <li>Cybers&eacute;curit&eacute; et protection des donn&eacute;es</li>
+                            <li>Supervision et monitoring des infrastructures</li>
+                            <li>Gestion des services r&eacute;seau (DNS, DHCP, AD)</li>
+                        </ul>
+
+                        <div class="option-careers">
+                            <h4>D&eacute;bouch&eacute;s</h4>
+                            <div class="career-tags">
+                                <span>Administrateur syst&egrave;mes</span>
+                                <span>Technicien r&eacute;seau</span>
+                                <span>Responsable infrastructure</span>
+                                <span>Analyste SOC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte SLAM -->
+                    <div class="option-card option-slam">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>SLAM</h3>
+                        <p class="option-full">Solutions Logicielles et Applications M&eacute;tier</p>
+
+                        <ul class="option-list">
+                            <li>D&eacute;veloppement d&rsquo;applications web et mobiles</li>
+                            <li>Conception et gestion de bases de donn&eacute;es</li>
+                            <li>Programmation orient&eacute;e objet</li>
+                            <li>Int&eacute;gration et d&eacute;ploiement d&rsquo;applications</li>
+                            <li>Analyse des besoins et cahier des charges</li>
+                            <li>Tests et validation logicielle</li>
+                        </ul>
+
+                        <div class="option-careers">
+                            <h4>D&eacute;bouch&eacute;s</h4>
+                            <div class="career-tags">
+                                <span>D&eacute;veloppeur web</span>
+                                <span>Analyste programmeur</span>
+                                <span>Int&eacute;grateur</span>
+                                <span>Testeur QA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-rationale reveal">
+                    <div class="rationale-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Pourquoi SISR ?</h4>
+                        <p>
+                            Le choix de l&rsquo;option SISR correspond &agrave; mon projet professionnel d&rsquo;&eacute;volution
+                            vers un poste d&rsquo;administrateur syst&egrave;mes et r&eacute;seaux. L&rsquo;infrastructure IT
+                            est le socle de toute organisation num&eacute;rique, et ma&icirc;triser ces fondamentaux
+                            me permet de r&eacute;pondre aux enjeux de performance, de s&eacute;curit&eacute; et de disponibilit&eacute;
+                            que rencontrent les entreprises aujourd&rsquo;hui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION VEILLE TECHNOLOGIQUE
+             IA dans l'aéronautique - Dashboard style
+             ======================================== -->
+        <section id="veille" class="section section-alt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">05 &mdash; Veille</span>
+                    <h2 class="section-title">Veille Technologique</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <div class="veille-hero reveal">
+                    <h3 class="veille-subject">L&rsquo;Intelligence Artificielle dans l&rsquo;A&eacute;ronautique</h3>
+                    <p class="veille-intro">
+                        L&rsquo;intelligence artificielle r&eacute;volutionne le secteur a&eacute;ronautique en transformant
+                        profond&eacute;ment la mani&egrave;re dont les avions sont con&ccedil;us, fabriqu&eacute;s, entretenus et pilot&eacute;s.
+                        Des acteurs majeurs comme <strong>Airbus</strong> et <strong>Boeing</strong> investissent massivement
+                        dans ces technologies pour optimiser la s&eacute;curit&eacute;, r&eacute;duire les co&ucirc;ts et am&eacute;liorer
+                        les performances op&eacute;rationnelles.
+                    </p>
+                </div>
+
+                <!-- Bloc Big Data -->
+                <div class="veille-block reveal">
+                    <div class="veille-block-header">
+                        <div class="block-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h3>Big Data &amp; IA A&eacute;ronautique</h3>
+                    </div>
+                    <p>
+                        Le <strong>Big Data</strong> d&eacute;signe l&rsquo;ensemble des donn&eacute;es massives g&eacute;n&eacute;r&eacute;es
+                        en continu, caract&eacute;ris&eacute;es par leur <em>volume</em>, leur <em>v&eacute;locit&eacute;</em>
+                        et leur <em>vari&eacute;t&eacute;</em>. Dans l&rsquo;a&eacute;ronautique, chaque vol g&eacute;n&egrave;re
+                        des t&eacute;raoctets de donn&eacute;es provenant de milliers de capteurs.
+                        L&rsquo;IA exploite ces donn&eacute;es pour la maintenance pr&eacute;dictive, l&rsquo;optimisation
+                        des trajectoires et l&rsquo;am&eacute;lioration de la s&eacute;curit&eacute; des vols.
+                    </p>
+                </div>
+
+                <!-- Bloc Réglementation -->
+                <div class="veille-block reveal">
+                    <div class="veille-block-header">
+                        <div class="block-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <h3>R&eacute;glementation &amp; RGPD</h3>
+                    </div>
+                    <p>
+                        Le <strong>R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD)</strong>,
+                        entr&eacute; en vigueur en 2018, encadre la collecte et le traitement des donn&eacute;es personnelles
+                        en Europe. Dans le secteur a&eacute;ronautique, cela concerne les donn&eacute;es des passagers,
+                        des &eacute;quipages et des employ&eacute;s. Les entreprises doivent garantir la transparence,
+                        le consentement et la s&eacute;curit&eacute; des donn&eacute;es collect&eacute;es.
+                    </p>
+                </div>
+
+                <!-- Bloc Dangers -->
+                <div class="veille-block veille-block-warning reveal">
+                    <div class="veille-block-header">
+                        <div class="block-icon" aria-hidden="true">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M10.29 3.86L1.82 18a2 2 0 0 0 1.71 3h16.94a2 2 0 0 0 1.71-3L13.71 3.86a2 2 0 0 0-3.42 0z"/>
+                                <line x1="12" y1="9" x2="12" y2="13"/>
+                                <line x1="12" y1="17" x2="12.01" y2="17"/>
+                            </svg>
+                        </div>
+                        <h3>Dangers du Big Data</h3>
+                    </div>
+                    <div class="danger-grid">
+                        <div class="danger-item">
+                            <h4>S&eacute;curit&eacute; des donn&eacute;es</h4>
+                            <p>Risques de fuites et de cyberattaques sur des donn&eacute;es critiques li&eacute;es &agrave; la s&eacute;curit&eacute; a&eacute;rienne.</p>
+                        </div>
+                        <div class="danger-item">
+                            <h4>Biais algorithmiques</h4>
+                            <p>Les mod&egrave;les d&rsquo;IA peuvent reproduire ou amplifier des biais pr&eacute;sents dans les donn&eacute;es d&rsquo;entra&icirc;nement.</p>
+                        </div>
+                        <div class="danger-item">
+                            <h4>D&eacute;pendance technologique</h4>
+                            <p>Risque de sur-d&eacute;pendance aux syst&egrave;mes automatis&eacute;s au d&eacute;triment du facteur humain.</p>
+                        </div>
+                        <div class="danger-item">
+                            <h4>Risques cyber</h4>
+                            <p>Vuln&eacute;rabilit&eacute;s des syst&egrave;mes connect&eacute;s pouvant compromettre la s&ucirc;ret&eacute; des vols.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- 10 Cartes dynamiques -->
+                <h3 class="veille-cards-title reveal">Applications de l&rsquo;IA en A&eacute;ronautique</h3>
+                <div class="veille-cards reveal">
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">01</div>
+                        <h4>Maintenance pr&eacute;dictive</h4>
+                        <p>Analyse des donn&eacute;es capteurs en temps r&eacute;el pour anticiper les pannes et planifier la maintenance avant qu&rsquo;un probl&egrave;me ne survienne.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">02</div>
+                        <h4>Pilotage autonome</h4>
+                        <p>D&eacute;veloppement de syst&egrave;mes d&rsquo;assistance au pilotage et de drones autonomes capables de voler sans intervention humaine.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">03</div>
+                        <h4>S&eacute;curit&eacute; a&eacute;rienne</h4>
+                        <p>D&eacute;tection d&rsquo;anomalies en vol gr&acirc;ce &agrave; l&rsquo;apprentissage automatique et am&eacute;lioration des protocoles de s&eacute;curit&eacute;.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">04</div>
+                        <h4>Optimisation des trajectoires</h4>
+                        <p>Calcul en temps r&eacute;el des routes de vol optimales pour r&eacute;duire la consommation de carburant et les &eacute;missions CO2.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">05</div>
+                        <h4>Contr&ocirc;le qualit&eacute; automatis&eacute;</h4>
+                        <p>Inspection visuelle par IA des pi&egrave;ces a&eacute;ronautiques pour d&eacute;tecter les d&eacute;fauts microscopiques en production.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">06</div>
+                        <h4>Gestion du trafic a&eacute;rien</h4>
+                        <p>Optimisation intelligente du trafic a&eacute;rien pour r&eacute;duire les retards et am&eacute;liorer l&rsquo;efficacit&eacute; des a&eacute;roports.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">07</div>
+                        <h4>Formation par simulation IA</h4>
+                        <p>Simulateurs de vol avanc&eacute;s utilisant l&rsquo;IA pour cr&eacute;er des sc&eacute;narios r&eacute;alistes et adapter la formation des pilotes.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">08</div>
+                        <h4>Analyse des bo&icirc;tes noires</h4>
+                        <p>Traitement automatis&eacute; des donn&eacute;es de vol pour am&eacute;liorer la compr&eacute;hension des incidents et renforcer les protocoles.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">09</div>
+                        <h4>Drones autonomes</h4>
+                        <p>Utilisation de drones pilot&eacute;s par IA pour l&rsquo;inspection des avions, la logistique et les op&eacute;rations de surveillance.</p>
+                    </article>
+                    <article class="veille-card">
+                        <div class="veille-card-number" aria-hidden="true">10</div>
+                        <h4>Jumeaux num&eacute;riques</h4>
+                        <p>Cr&eacute;ation de r&eacute;pliques virtuelles d&rsquo;avions pour simuler l&rsquo;usure, tester des modifications et optimiser la conception.</p>
+                    </article>
+                </div>
+
+                <!-- Zone Google Alert & Flux RSS fusionnée -->
+                <div class="veille-feed-unified reveal">
+                    <div class="feed-unified-header">
+                        <div class="feed-unified-icons">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <circle cx="11" cy="11" r="8"/>
+                                <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+                            </svg>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <path d="M4 11a9 9 0 0 1 9 9"/>
+                                <path d="M4 4a16 16 0 0 1 16 16"/>
+                                <circle cx="5" cy="19" r="1"/>
+                            </svg>
+                        </div>
+                        <div>
+                            <h4>Google Alert &amp; Flux RSS</h4>
+                            <p class="feed-unified-sub">Veille automatis&eacute;e sur l&rsquo;IA dans l&rsquo;a&eacute;ronautique</p>
+                        </div>
+                    </div>
+                    <div class="feed-unified-body">
+                        <div class="feed-rss-container" id="rssFeed">
+                            <div class="feed-loading">
+                                <div class="feed-spinner"></div>
+                                <span>Chargement des articles...</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION CONTACT
+             Formulaire validé en JS
+             ======================================== -->
+        <section id="contact" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">06 &mdash; Contact</span>
+                    <h2 class="section-title">Me contacter</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-info reveal">
+                        <h3>Restons en contact</h3>
+                        <p>
+                            N&rsquo;h&eacute;sitez pas &agrave; me contacter pour toute question, proposition de stage
+                            ou opportunit&eacute; professionnelle. Je vous r&eacute;pondrai dans les meilleurs d&eacute;lais.
+                        </p>
+                        <div class="contact-details">
+                            <div class="contact-item">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                                    <circle cx="12" cy="10" r="3"/>
+                                </svg>
+                                <span>Paris, France</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <form class="contact-form reveal" id="contactForm" novalidate>
+                        <div class="form-group">
+                            <label for="formName">Nom complet</label>
+                            <input type="text" id="formName" name="name" placeholder="Votre nom" required autocomplete="name" aria-required="true">
+                            <span class="form-error" id="nameError" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="formEmail">Adresse e-mail</label>
+                            <input type="email" id="formEmail" name="email" placeholder="votre@email.com" required autocomplete="email" aria-required="true">
+                            <span class="form-error" id="emailError" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="formSubject">Sujet</label>
+                            <input type="text" id="formSubject" name="subject" placeholder="Sujet de votre message" required aria-required="true">
+                            <span class="form-error" id="subjectError" role="alert"></span>
+                        </div>
+                        <div class="form-group">
+                            <label for="formMessage">Message</label>
+                            <textarea id="formMessage" name="message" rows="5" placeholder="Votre message..." required aria-required="true"></textarea>
+                            <span class="form-error" id="messageError" role="alert"></span>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-submit">
+                            <span class="btn-text">Envoyer le message</span>
+                            <span class="btn-loading" aria-hidden="true">
+                                <svg class="spinner" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <circle cx="12" cy="12" r="10"/>
+                                </svg>
+                            </span>
+                            <span class="btn-success" aria-hidden="true">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="20 6 9 17 4 12"/>
+                                </svg>
+                            </span>
+                        </button>
+                        <div class="form-confirmation" id="formConfirmation" role="status" aria-live="polite">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <p>Votre message a &eacute;t&eacute; envoy&eacute; avec succ&egrave;s !</p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             FOOTER
+             ======================================== -->
+        <footer class="footer" role="contentinfo">
+            <div class="container">
+                <div class="footer-content">
+                    <p class="footer-copy">&copy; 2026 Adam Mzili &mdash; BTS SIO option SISR</p>
+                    <p class="footer-note">Portfolio r&eacute;alis&eacute; dans le cadre de l&rsquo;&eacute;preuve E5</p>
+                </div>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Script principal -->
+    <script src="script.js"></script>
+</body>
+</html>
