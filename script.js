@@ -295,7 +295,141 @@
   }
 
   /* ============================================
-     8. RSS FEED - Google Alert (Atom XML)
+     8. PDF MODAL - Skill card viewer (multi-PDF)
+     ============================================ */
+  function initPdfModal() {
+    const modal       = document.getElementById('pdfModal');
+    const frame       = document.getElementById('pdfFrame');
+    const placeholder = document.getElementById('pdfPlaceholder');
+    const closeBtn    = document.getElementById('pdfModalClose');
+    const backdrop    = modal ? modal.querySelector('.pdf-modal-backdrop') : null;
+    const titleEl     = document.getElementById('pdfModalTitle');
+    const dlBtn       = document.getElementById('pdfDownloadBtn');
+    const tabsEl      = document.getElementById('pdfDocTabs');
+
+    if (!modal) return;
+
+    function loadPdf(pdfPath) {
+      // Load directly - no fetch() (breaks on file:// protocol)
+      placeholder.classList.remove('visible');
+      frame.style.display = 'block';
+      frame.src = pdfPath;
+      dlBtn.href = pdfPath;
+      dlBtn.style.display = 'inline-flex';
+
+      // If iframe fails to load (file not found), show placeholder
+      frame.onerror = function() {
+        frame.src = '';
+        frame.style.display = 'none';
+        placeholder.classList.add('visible');
+        dlBtn.removeAttribute('href');
+        dlBtn.style.display = 'none';
+      };
+    }
+
+    function buildTabs(docs) {
+      tabsEl.innerHTML = '';
+      if (!docs || docs.length <= 1) return;
+      docs.forEach(function(doc, i) {
+        const btn = document.createElement('button');
+        btn.className = 'pdf-doc-tab' + (i === 0 ? ' active' : '');
+        btn.setAttribute('role', 'tab');
+        btn.setAttribute('aria-selected', i === 0 ? 'true' : 'false');
+        btn.innerHTML =
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>' +
+          doc.label;
+        btn.addEventListener('click', function() {
+          tabsEl.querySelectorAll('.pdf-doc-tab').forEach(function(t) {
+            t.classList.remove('active');
+            t.setAttribute('aria-selected', 'false');
+          });
+          btn.classList.add('active');
+          btn.setAttribute('aria-selected', 'true');
+          loadPdf(doc.file);
+        });
+        tabsEl.appendChild(btn);
+      });
+    }
+
+    function openModal(docs, title) {
+      titleEl.textContent = title;
+      buildTabs(docs);
+
+      // Load first available doc
+      const first = docs && docs.length > 0 ? docs[0] : null;
+      if (first) {
+        loadPdf(first.file);
+      } else {
+        frame.src = '';
+        frame.style.display = 'none';
+        placeholder.classList.add('visible');
+        dlBtn.style.display = 'none';
+      }
+
+      modal.classList.add('is-open');
+      modal.setAttribute('aria-hidden', 'false');
+      document.body.style.overflow = 'hidden';
+      closeBtn.focus();
+    }
+
+    function closeModal() {
+      modal.classList.remove('is-open');
+      modal.setAttribute('aria-hidden', 'true');
+      document.body.style.overflow = '';
+      setTimeout(function() {
+        frame.src = '';
+        tabsEl.innerHTML = '';
+      }, 300);
+    }
+
+    // Skill cards with data-pdfs (JSON array)
+    document.querySelectorAll('.skill-card[data-pdfs]').forEach(function(card) {
+      function handleOpen() {
+        let docs = [];
+        try { docs = JSON.parse(card.dataset.pdfs); } catch(e) {}
+        const skill = card.dataset.skill || '';
+        const labels = {
+          reseaux: 'R\u00e9seaux', systemes: 'Syst\u00e8mes',
+          virtualisation: 'Virtualisation', cybersecurite: 'Cybers\u00e9curit\u00e9',
+          maintenance: 'Maintenance', support: 'Support Utilisateur'
+        };
+        openModal(docs, 'Documents \u2014 ' + (labels[skill] || skill));
+      }
+      card.addEventListener('click', handleOpen);
+      card.addEventListener('keydown', function(e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); handleOpen(); }
+      });
+    });
+
+    // Rapport de stage buttons
+    document.querySelectorAll('.rapport-btn[data-pdf]').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const label = btn.dataset.label || 'Rapport de stage';
+        openModal([{ label: label, file: btn.dataset.pdf }], label);
+      });
+    });
+
+    // Tableau de compétences PDF button
+    var compBtn = document.getElementById('openCompetencesPdf');
+    if (compBtn) {
+      compBtn.addEventListener('click', function() {
+        openModal(
+          [{ label: 'Tableau de comp\u00e9tences', file: 'assets/competences.pdf' }],
+          'Tableau de comp\u00e9tences'
+        );
+      });
+    }
+
+    closeBtn.addEventListener('click', closeModal);
+    backdrop.addEventListener('click', closeModal);
+    document.addEventListener('keydown', function(e) {
+      if (e.key === 'Escape' && modal.classList.contains('is-open')) closeModal();
+    });
+  }
+
+  /* ============================================
+     9. RSS FEED - Google Alert (Atom XML)
      ============================================ */
   function initRSSFeed() {
     const container = document.getElementById('rssFeed');
@@ -329,18 +463,18 @@
         // All proxies failed, show error
         container.innerHTML =
           '<div class="feed-error">' +
-            '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
-            '<p>Impossible de charger le flux RSS.<br>Veuillez r\u00e9essayer plus tard.</p>' +
+          '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/></svg>' +
+          '<p>Impossible de charger le flux RSS.<br>Veuillez r\u00e9essayer plus tard.</p>' +
           '</div>';
         return;
       }
 
       fetch(proxies[index])
-        .then(function(res) {
+        .then(function (res) {
           if (!res.ok) throw new Error('Proxy ' + index + ' failed');
           return res.text();
         })
-        .then(function(xmlText) {
+        .then(function (xmlText) {
           // Check it's actual XML
           if (!xmlText || xmlText.indexOf('<entry>') === -1 && xmlText.indexOf('<entry ') === -1) {
             throw new Error('Not valid Atom XML');
@@ -376,7 +510,7 @@
           } catch (e) { /* storage full */ }
           renderArticles(container, items);
         })
-        .catch(function() {
+        .catch(function () {
           // Try next proxy
           tryProxy(index + 1);
         });
@@ -387,7 +521,7 @@
 
   function renderArticles(container, items) {
     let html = '';
-    items.forEach(function(item) {
+    items.forEach(function (item) {
       let date = '';
       if (item.pubDate) {
         const d = new Date(item.pubDate);
@@ -405,14 +539,14 @@
       let source = '';
       try {
         source = new URL(item.link).hostname.replace('www.', '');
-      } catch(e) { source = ''; }
+      } catch (e) { source = ''; }
 
       html +=
         '<a href="' + item.link + '" target="_blank" rel="noopener noreferrer" class="rss-article">' +
-          (date ? '<div class="rss-article-date">' + date + '</div>' : '') +
-          '<div class="rss-article-title">' + (item.title || 'Article sans titre') + '</div>' +
-          (snippet ? '<div class="rss-article-snippet">' + snippet + '</div>' : '') +
-          (source ? '<div class="rss-article-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' + source + '</div>' : '') +
+        (date ? '<div class="rss-article-date">' + date + '</div>' : '') +
+        '<div class="rss-article-title">' + (item.title || 'Article sans titre') + '</div>' +
+        (snippet ? '<div class="rss-article-snippet">' + snippet + '</div>' : '') +
+        (source ? '<div class="rss-article-source"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>' + source + '</div>' : '') +
         '</a>';
     });
     container.innerHTML = html;
@@ -479,20 +613,43 @@
 
       if (!v1 || !v2 || !v3 || !v4) return;
 
-      /* Simulate sending */
       submitBtn.classList.add('loading');
 
-      setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.classList.add('success');
-        confirmation.classList.add('visible');
-        contactForm.reset();
+      // Send to Formspree as JSON (more reliable)
+      const data = {
+        name:    nameInput.value,
+        email:   emailInput.value,
+        subject: subjectInput.value,
+        message: messageInput.value
+      };
 
-        setTimeout(() => {
-          submitBtn.classList.remove('success');
-          confirmation.classList.remove('visible');
-        }, 4000);
-      }, 1500);
+      fetch('https://formspree.io/f/mojkvyez', {
+        method: 'POST',
+        body: JSON.stringify(data),
+        headers: {
+          'Accept': 'application/json',
+          'Content-Type': 'application/json'
+        }
+      })
+        .then(response => {
+          submitBtn.classList.remove('loading');
+          if (response.ok) {
+            submitBtn.classList.add('success');
+            confirmation.classList.add('visible');
+            contactForm.reset();
+
+            setTimeout(() => {
+              submitBtn.classList.remove('success');
+              confirmation.classList.remove('visible');
+            }, 4000);
+          } else {
+            throw new Error('Erreur envoi');
+          }
+        })
+        .catch(() => {
+          submitBtn.classList.remove('loading');
+          alert('Une erreur est survenue. Veuillez r\u00e9essayer.');
+        });
     });
   }
 
@@ -526,6 +683,7 @@
     typeEffect();
     initParticles();
     initContactForm();
+    initPdfModal();
     initRSSFeed();
     updateActiveNav();
   }
