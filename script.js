@@ -78,16 +78,24 @@
      ============================================ */
   function updateActiveNav() {
     let current = '';
+    const scrollY = window.scrollY + window.innerHeight / 3;
+    
     sections.forEach(section => {
-      const top = section.offsetTop - 120;
-      if (window.scrollY >= top) {
+      const sectionTop = section.offsetTop;
+      const sectionBottom = sectionTop + section.offsetHeight;
+      
+      if (scrollY >= sectionTop && scrollY < sectionBottom) {
         current = section.getAttribute('id');
       }
     });
 
     navLinks.forEach(link => {
-      link.classList.remove('active');
-      if (link.getAttribute('data-section') === current) {
+      const wasActive = link.classList.contains('active');
+      const isActive = link.getAttribute('data-section') === current;
+      
+      if (wasActive && !isActive) {
+        link.classList.remove('active');
+      } else if (!wasActive && isActive) {
         link.classList.add('active');
       }
     });
@@ -104,6 +112,23 @@
         el.classList.add('visible');
       }
     });
+  }
+
+  /* ============================================
+     3.5 CONTACT SECTION ANIMATION
+     ============================================ */
+  let contactAnimated = false;
+
+  function animateContact() {
+    if (contactAnimated) return;
+    const contactSection = document.getElementById('contactAnimated');
+    if (!contactSection) return;
+
+    const rect = contactSection.getBoundingClientRect();
+    if (rect.top < window.innerHeight * 0.85) {
+      contactAnimated = true;
+      contactSection.classList.add('animate-in');
+    }
   }
 
   /* ============================================
@@ -410,6 +435,15 @@
       });
     });
 
+    // Projet GSB buttons (Contexte & Documentation)
+    document.querySelectorAll('.projet-btn[data-pdf]').forEach(function(btn) {
+      btn.addEventListener('click', function(e) {
+        e.stopPropagation();
+        const label = btn.dataset.label || 'Document';
+        openModal([{ label: label, file: btn.dataset.pdf }], label);
+      });
+    });
+
     // Tableau de compétences PDF button
     var compBtn = document.getElementById('openCompetencesPdf');
     if (compBtn) {
@@ -665,6 +699,7 @@
         handleReveal();
         animateSkills();
         animateStats();
+        animateContact();
         ticking = false;
       });
       ticking = true;
@@ -680,11 +715,14 @@
     handleReveal();
     animateSkills();
     animateStats();
+    animateContact();
     typeEffect();
     initParticles();
     initContactForm();
     initPdfModal();
     initRSSFeed();
+    initCarousel();
+    initLightbox();
     updateActiveNav();
   }
 
@@ -695,3 +733,274 @@
   }
 
 })();
+
+/* ================================================================
+   CAROUSEL — GALERIE PHOTOS
+   Vanilla JS, pas de librairie externe.
+   Defilement automatique toutes les 4 secondes, transition en fondu.
+   ================================================================
+
+   ┌─────────────────────────────────────────────────────────────┐
+   │ POUR AJOUTER VOS PROPRES PHOTOS :                           │
+   ├─────────────────────────────────────────────────────────────┤
+   │                                                             │
+   │ 1. PLACEZ VOS IMAGES dans le dossier images/carousel/      │
+   │    Exemples : images/carousel/photo-1.jpg                  │
+   │              images/carousel/photo-2.jpg, etc.             │
+   │                                                             │
+   │ 2. MODIFIEZ LE TABLEAU carouselSlides ci-dessous :          │
+   │    - Ajouter/supprimer des objets selon vos photos          │
+   │    - Il n'y a PAS de limite de nombre de slides             │
+   │                                                             │
+   │ 3. POUR CHAQUE SLIDE, vous devez definir :                │
+   │    image  : chemin vers votre photo (OBLIGATOIRE)          │
+   │    title  : titre court, 2-3 mots max (OBLIGATOIRE)        │
+   │    legend : description de 1 phrase (OBLIGATOIRE)          │
+   │                                                             │
+   │ 4. TAILLES D'IMAGES FLEXIBLES :                             │
+   │    ✓ Les images sont automatiquement redimensionnees      │
+   │    ✓ Peu importe la taille originale de votre photo      │
+   │    ✓ Elle s\'affichera en pleine largeur avec bon ratio   │
+   │    ✓ Aucune distorsion, meme si ratio different           │
+   │                                                             │
+   │ 5. EXEMPLE COMPLET :                                        │
+   │    {                                                        │
+   │      image:  'images/carousel/salle-serveur.jpg',          │
+   │      title:  'Salle Serveur',                              │
+   │      legend: 'Infrastructure physique du datacenter.'      │
+   │    }                                                        │
+   │                                                             │
+   │ NE SUPPRIMEZ PAS LES TIRETS ET ESPERLUETTES :              │
+   │ Exemple : l\'entreprise (apostrophe echappee)              │
+   │           \"exemple\" (pour les guillemets)                 │
+   │                                                             │
+   └─────────────────────────────────────────────────────────────┘
+   ================================================================ */
+
+const carouselSlides = [
+  {
+    image:  'images/carousel/slide-1.jpg',
+    title:  'Baie reseau GSB',
+    legend: 'Baie reseau utilisee pour le projet GSB — switches Cisco Catalyst 2960 et routeur Cisco 1941'
+  },
+  {
+    image:  'images/carousel/slide-2.jpg',
+    title:  'Schema du reseau GSB',
+    legend: 'Diagramme de l\'infrastructure reseau GSB : VLANs, routeurs, Stormshield, hyperviseurs et adressage IP'
+  },
+  {
+    image:  'images/carousel/slide-3.jpg',
+    title:  'Windows Server',
+    legend: 'Verification des permissions NTFS via PowerShell avec la commande Get-NTFSAccess sur C:\\dossierperso'
+  },
+  {
+    image:  'images/carousel/slide-4.jpg',
+    title:  'Configuration reseau',
+    legend: 'Interface de gestion PCG03 — adressage statique 172.20.92.3, passerelle 172.20.127.254'
+  }
+];
+
+/* ============================================================
+   CODE DU CAROUSEL — ne pas modifier sauf pour personnaliser
+   ============================================================ */
+function initCarousel() {
+  const track    = document.getElementById('carouselTrack');
+  const dotsWrap = document.getElementById('carouselDots');
+  const btnPrev  = document.getElementById('carouselPrev');
+  const btnNext  = document.getElementById('carouselNext');
+
+  if (!track || carouselSlides.length === 0) return;
+
+  const INTERVAL = 8000; // delai en ms entre chaque slide
+  let currentIndex = 0;
+  let autoTimer    = null;
+  let progressTimer = null;
+
+  /* ---- Construction des slides ---- */
+  carouselSlides.forEach(function(slide, i) {
+    const el = document.createElement('div');
+    el.className = 'carousel-slide' + (i === 0 ? ' active' : '');
+    el.setAttribute('role', 'tabpanel');
+    el.setAttribute('aria-label', 'Slide ' + (i + 1) + ' sur ' + carouselSlides.length);
+
+    const img = document.createElement('img');
+    img.src = slide.image;
+    img.alt = slide.title;
+    img.loading = 'lazy';
+    img.onerror = function() {
+      // Si l'image ne se charge pas, afficher un fond coloré avec le nom du fichier
+      el.style.background = '#1e293b';
+      el.style.display = 'flex';
+      el.style.alignItems = 'center';
+      el.style.justifyContent = 'center';
+      const msg = document.createElement('p');
+      msg.style.cssText = 'color:#60a5fa;font-size:13px;text-align:center;padding:16px;font-family:monospace;';
+      msg.textContent = 'Image introuvable : ' + slide.image;
+      el.insertBefore(msg, el.firstChild);
+    };
+
+    const caption = document.createElement('div');
+    caption.className = 'carousel-caption';
+    caption.innerHTML =
+      '<p class="carousel-caption-title">' + slide.title + '</p>' +
+      '<p class="carousel-caption-legend">' + slide.legend + '</p>';
+
+    el.appendChild(img);
+    el.appendChild(caption);
+    track.appendChild(el);
+  });
+
+  /* ---- Barre de progression ---- */
+  const progressWrap = document.createElement('div');
+  progressWrap.className = 'carousel-progress';
+  const progressBar = document.createElement('div');
+  progressBar.className = 'carousel-progress-bar';
+  progressWrap.appendChild(progressBar);
+  track.parentNode.parentNode.appendChild(progressWrap);
+
+  /* ---- Construction des points ---- */
+  carouselSlides.forEach(function(_, i) {
+    const dot = document.createElement('button');
+    dot.className = 'carousel-dot' + (i === 0 ? ' active' : '');
+    dot.setAttribute('role', 'tab');
+    dot.setAttribute('aria-label', 'Aller a la slide ' + (i + 1));
+    dot.addEventListener('click', function() { goTo(i); });
+    dotsWrap.appendChild(dot);
+  });
+
+  /* ---- Affichage d'une slide ---- */
+  function goTo(index) {
+    const slides = track.querySelectorAll('.carousel-slide');
+    const dots   = dotsWrap.querySelectorAll('.carousel-dot');
+
+    slides[currentIndex].classList.remove('active');
+    dots[currentIndex].classList.remove('active');
+
+    currentIndex = (index + carouselSlides.length) % carouselSlides.length;
+
+    slides[currentIndex].classList.add('active');
+    dots[currentIndex].classList.add('active');
+
+    resetProgress();
+  }
+
+  /* ---- Barre de progression animee ---- */
+  function resetProgress() {
+    clearTimeout(progressTimer);
+    progressBar.style.transition = 'none';
+    progressBar.style.width = '0%';
+    // Force reflow pour reset la transition
+    progressBar.getBoundingClientRect();
+    progressBar.style.transition = 'width ' + INTERVAL + 'ms linear';
+    progressBar.style.width = '100%';
+  }
+
+  /* ---- Defilement automatique ---- */
+  function startAuto() {
+    clearInterval(autoTimer);
+    autoTimer = setInterval(function() {
+      goTo(currentIndex + 1);
+    }, INTERVAL);
+  }
+
+  function stopAuto() {
+    clearInterval(autoTimer);
+    clearTimeout(progressTimer);
+  }
+
+  /* ---- Fleches ---- */
+  btnPrev.addEventListener('click', function() {
+    stopAuto();
+    goTo(currentIndex - 1);
+    startAuto();
+  });
+
+  btnNext.addEventListener('click', function() {
+    stopAuto();
+    goTo(currentIndex + 1);
+    startAuto();
+  });
+
+  /* ---- Pause au survol ---- */
+  const carouselEl = document.getElementById('mainCarousel');
+  carouselEl.addEventListener('mouseenter', stopAuto);
+  carouselEl.addEventListener('mouseleave', function() {
+    startAuto();
+    resetProgress();
+  });
+
+  /* ---- Swipe tactile ---- */
+  let touchStartX = 0;
+  carouselEl.addEventListener('touchstart', function(e) {
+    touchStartX = e.touches[0].clientX;
+  }, { passive: true });
+  carouselEl.addEventListener('touchend', function(e) {
+    const diff = touchStartX - e.changedTouches[0].clientX;
+    if (Math.abs(diff) > 40) {
+      stopAuto();
+      goTo(currentIndex + (diff > 0 ? 1 : -1));
+      startAuto();
+    }
+  }, { passive: true });
+
+  /* ---- Demarrage ---- */
+  resetProgress();
+  startAuto();
+}
+
+/* ================================================================
+   LIGHTBOX IMAGE — Clic sur les photos du carousel pour les agrandir
+   ================================================================ */
+function initLightbox() {
+  const lightbox     = document.getElementById('imgLightbox');
+  const lbImg        = document.getElementById('imgLightboxImg');
+  const lbCaption    = document.getElementById('imgLightboxCaption');
+  const lbClose      = document.getElementById('imgLightboxClose');
+  const lbBackdrop   = lightbox ? lightbox.querySelector('.img-lightbox-backdrop') : null;
+
+  if (!lightbox) return;
+
+  function openLightbox(src, alt, caption) {
+    lbImg.src = src;
+    lbImg.alt = alt || '';
+    lbCaption.textContent = caption || '';
+    lightbox.classList.add('is-open');
+    lightbox.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    lbClose.focus();
+  }
+
+  function closeLightbox() {
+    lightbox.classList.remove('is-open');
+    lightbox.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    lbImg.src = '';
+  }
+
+  /* Clic sur une image du carousel */
+  document.addEventListener('click', function(e) {
+    const img = e.target.closest('.carousel-slide img');
+    if (!img) return;
+    const caption = img.closest('.carousel-slide')
+      ? img.closest('.carousel-slide').querySelector('.carousel-caption-title')
+      : null;
+    const legend = img.closest('.carousel-slide')
+      ? img.closest('.carousel-slide').querySelector('.carousel-caption-legend')
+      : null;
+    const fullCaption = [
+      caption ? caption.textContent : '',
+      legend  ? legend.textContent  : ''
+    ].filter(Boolean).join(' — ');
+    openLightbox(img.src, img.alt, fullCaption);
+  });
+
+  /* Fermeture */
+  if (lbClose)    lbClose.addEventListener('click', closeLightbox);
+  if (lbBackdrop) lbBackdrop.addEventListener('click', closeLightbox);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
+      closeLightbox();
+    }
+  });
+}

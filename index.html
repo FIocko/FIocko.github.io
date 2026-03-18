@@ -52,6 +52,15 @@
                 </a>
             </li>
             <li>
+                <a href="#options" class="nav-link" data-section="options" aria-label="Options SIO">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
+                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                    </svg>
+                    <span class="nav-text">Options SIO</span>
+                </a>
+            </li>
+            <li>
                 <a href="#competences" class="nav-link" data-section="competences" aria-label="Compétences">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <polyline points="16 18 22 12 16 6"/>
@@ -70,12 +79,28 @@
                 </a>
             </li>
             <li>
-                <a href="#options" class="nav-link" data-section="options" aria-label="Options SIO">
+                <a href="#projet" class="nav-link" data-section="projet" aria-label="Projet GSB">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/>
-                        <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/>
+                        <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/>
+                        <path d="M3 21h18"/>
+                        <path d="M9 7h1"/>
+                        <path d="M9 11h1"/>
+                        <path d="M9 15h1"/>
+                        <path d="M14 7h1"/>
+                        <path d="M14 11h1"/>
+                        <path d="M14 15h1"/>
                     </svg>
-                    <span class="nav-text">Options SIO</span>
+                    <span class="nav-text">Projet GSB</span>
+                </a>
+            </li>
+            <li>
+                <a href="#galerie" class="nav-link" data-section="galerie" aria-label="Galerie Photos">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
+                        <circle cx="8.5" cy="8.5" r="1.5"/>
+                        <polyline points="21 15 16 10 5 21"/>
+                    </svg>
+                    <span class="nav-text">Galerie</span>
                 </a>
             </li>
             <li>
@@ -178,7 +203,6 @@
                         </svg>
                         Me contacter
                     </a>
-                    <!-- INSTRUCTION : Remplacer href par le chemin réel du CV PDF -->
                     <a href="assets/cv.pdf" class="btn btn-outline" download aria-label="Télécharger mon CV au format PDF">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                             <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -238,13 +262,8 @@
                                 <span class="stat-number" data-target="2">0</span>
                                 <span class="stat-label">Stages r&eacute;alis&eacute;s</span>
                             </div>
-                            <div class="stat-item">
-                                <span class="stat-number" data-target="10">0</span>
-                                <span class="stat-label">Projets techniques</span>
-                            </div>
                         </div>
 
-                        <!-- INSTRUCTION : Remplacer href par le chemin réel du CV PDF -->
                         <a href="assets/cv.pdf" class="btn btn-primary" download aria-label="Télécharger mon CV au format PDF">
                             <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
                                 <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
@@ -296,14 +315,121 @@
         </section>
 
         <!-- ========================================
-             SECTION COMP&Eacute;TENCES
+             SECTION OPTIONS BTS SIO
+             Comparatif SISR vs SLAM
+             ======================================== -->
+        <section id="options" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">02 &mdash; Formation</span>
+                    <h2 class="section-title">Options BTS SIO</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <p class="section-intro reveal">
+                    Le BTS SIO propose deux sp&eacute;cialisations distinctes. Mon choix de l&rsquo;option <strong>SISR</strong>
+                    s&rsquo;inscrit dans une logique de carri&egrave;re orient&eacute;e vers l&rsquo;administration d&rsquo;infrastructures
+                    et la s&eacute;curisation des syst&egrave;mes d&rsquo;information.
+                </p>
+
+                <div class="options-compare reveal">
+                    <!-- Carte SISR -->
+                    <div class="option-card option-sisr selected">
+                        <div class="option-badge">Mon choix</div>
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                <line x1="6" y1="18" x2="6.01" y2="18"/>
+                            </svg>
+                        </div>
+                        <h3>SISR</h3>
+                        <p class="option-full">Solutions d&rsquo;Infrastructure, Syst&egrave;mes et R&eacute;seaux</p>
+
+                        <ul class="option-list">
+                            <li>Administration des syst&egrave;mes (Windows Server, Linux)</li>
+                            <li>Configuration et maintenance des r&eacute;seaux</li>
+                            <li>Virtualisation et cloud computing</li>
+                            <li>Cybers&eacute;curit&eacute; et protection des donn&eacute;es</li>
+                            <li>Supervision et monitoring des infrastructures</li>
+                            <li>Gestion des services r&eacute;seau (DNS, DHCP, AD)</li>
+                        </ul>
+
+                        <div class="option-careers">
+                            <h4>D&eacute;bouch&eacute;s</h4>
+                            <div class="career-tags">
+                                <span>Administrateur syst&egrave;mes</span>
+                                <span>Technicien r&eacute;seau</span>
+                                <span>Responsable infrastructure</span>
+                                <span>Analyste SOC</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Carte SLAM -->
+                    <div class="option-card option-slam">
+                        <div class="option-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h3>SLAM</h3>
+                        <p class="option-full">Solutions Logicielles et Applications M&eacute;tier</p>
+
+                        <ul class="option-list">
+                            <li>D&eacute;veloppement d&rsquo;applications web et mobiles</li>
+                            <li>Conception et gestion de bases de donn&eacute;es</li>
+                            <li>Programmation orient&eacute;e objet</li>
+                            <li>Int&eacute;gration et d&eacute;ploiement d&rsquo;applications</li>
+                            <li>Analyse des besoins et cahier des charges</li>
+                            <li>Tests et validation logicielle</li>
+                        </ul>
+
+                        <div class="option-careers">
+                            <h4>D&eacute;bouch&eacute;s</h4>
+                            <div class="career-tags">
+                                <span>D&eacute;veloppeur web</span>
+                                <span>Analyste programmeur</span>
+                                <span>Int&eacute;grateur</span>
+                                <span>Testeur QA</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="option-rationale reveal">
+                    <div class="rationale-icon" aria-hidden="true">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                            <circle cx="12" cy="12" r="10"/>
+                            <line x1="12" y1="16" x2="12" y2="12"/>
+                            <line x1="12" y1="8" x2="12.01" y2="8"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h4>Pourquoi SISR ?</h4>
+                        <p>
+                            Le choix de l&rsquo;option SISR correspond &agrave; mon projet professionnel d&rsquo;&eacute;volution
+                            vers un poste d&rsquo;administrateur syst&egrave;mes et r&eacute;seaux. L&rsquo;infrastructure IT
+                            est le socle de toute organisation num&eacute;rique, et ma&icirc;triser ces fondamentaux
+                            me permet de r&eacute;pondre aux enjeux de performance, de s&eacute;curit&eacute; et de disponibilit&eacute;
+                            que rencontrent les entreprises aujourd&rsquo;hui.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION COMPÉTENCES
              Barres animées par catégorie
              ======================================== -->
         <section id="competences" class="section skills-section-wrapper">
             <canvas id="shootingStarsCanvas" aria-hidden="true"></canvas>
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">02 &mdash; Expertise</span>
+                    <span class="section-tag">03 &mdash; Expertise</span>
                     <h2 class="section-title">Comp&eacute;tences</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
@@ -458,7 +584,6 @@
                     </div>
                 </div>
 
-                <!-- INSTRUCTION : Remplacer href par le chemin du fichier Excel -->
                 <div class="skills-download reveal">
                     <button class="btn btn-primary" id="openCompetencesPdf" type="button" aria-label="Voir le tableau de compétences en PDF">
                         <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
@@ -486,7 +611,7 @@
         <section id="stages" class="section section-alt">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">03 &mdash; Exp&eacute;rience</span>
+                    <span class="section-tag">04 &mdash; Exp&eacute;rience</span>
                     <h2 class="section-title">Stages en entreprise</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
@@ -500,31 +625,26 @@
                         <div class="timeline-content">
                             <div class="timeline-badge">2&egrave;me ann&eacute;e</div>
                             <h3 class="timeline-title">La Goutte d&rsquo;Ordinateur</h3>
+                            <p class="timeline-role">Technicien syst&egrave;mes &amp; r&eacute;seaux</p>
                             <span class="timeline-period">Janvier &mdash; F&eacute;vrier 2026</span>
 
                             <div class="timeline-section">
                                 <h4>Contexte</h4>
                                 <p>
-                                    Second stage au sein de l&rsquo;association La Goutte d&rsquo;Ordinateur, structure &agrave; vocation
-                                    sociale sp&eacute;cialis&eacute;e dans le reconditionnement informatique et l&rsquo;inclusion num&eacute;rique.
-                                    Prise en charge de missions techniques avanc&eacute;es au sein de l&rsquo;&eacute;quipe infrastructure,
-                                    avec une responsabilit&eacute; accrue sur l&rsquo;administration syst&egrave;mes et r&eacute;seaux.
+                                    Second stage au sein de la m&ecirc;me association, avec une mont&eacute;e en responsabilit&eacute; significative. 
+                                    Prise en charge autonome de l&rsquo;infrastructure syst&egrave;mes et r&eacute;seaux de la structure.
                                 </p>
                             </div>
 
                             <div class="timeline-section">
-                                <h4>Missions techniques</h4>
+                                <h4>Missions</h4>
                                 <ul>
-                                    <li>Configuration DHCP avec r&eacute;servations IP pour l&rsquo;ensemble du parc informatique</li>
-                                    <li>Cr&eacute;ation de partages r&eacute;seau s&eacute;curis&eacute;s avec droits NTFS adapt&eacute;s par service</li>
-                                    <li>Mise en place de GPO (strat&eacute;gies de groupe) pour le d&eacute;ploiement de configurations</li>
-                                    <li>Gestion VLAN et adressage IP statique sur les &eacute;quipements r&eacute;seau</li>
-                                    <li>Sauvegarde des configurations firewall et switch</li>
-                                    <li>Gestion Active Directory : cr&eacute;ation de comptes, unit&eacute;s d&rsquo;organisation et groupes</li>
-                                    <li>R&eacute;organisation des dossiers partag&eacute;s selon les groupes Active Directory</li>
-                                    <li>Sauvegarde serveur et gestion des droits d&rsquo;acc&egrave;s</li>
+                                    <li>Administration Active Directory : comptes, unit&eacute;s d&rsquo;organisation, groupes et droits NTFS</li>
+                                    <li>D&eacute;ploiement de GPO pour la gestion centralis&eacute;e des postes</li>
+                                    <li>Configuration DHCP, VLAN et adressage IP statique sur les &eacute;quipements r&eacute;seau</li>
+                                    <li>Sauvegarde des configurations firewall, switch et serveur</li>
                                     <li>Supervision des ressources syst&egrave;me (CPU, RAM, disque)</li>
-                                    <li>R&eacute;daction de documentation technique des proc&eacute;dures mises en place</li>
+                                    <li>R&eacute;daction de la documentation technique des proc&eacute;dures mises en place</li>
                                 </ul>
                             </div>
 
@@ -543,21 +663,10 @@
                             </div>
 
                             <div class="timeline-section">
-                                <h4>R&eacute;sultats obtenus</h4>
+                                <h4>R&eacute;sultats</h4>
                                 <p>
-                                    Centralisation de la gestion des utilisateurs via Active Directory, s&eacute;curisation
-                                    des acc&egrave;s aux ressources partag&eacute;es gr&acirc;ce aux droits NTFS et GPO,
-                                    am&eacute;lioration de la segmentation r&eacute;seau par la mise en place de VLAN,
-                                    et cr&eacute;ation d&rsquo;une documentation technique exploitable par l&rsquo;&eacute;quipe.
-                                </p>
-                            </div>
-
-                            <div class="timeline-section">
-                                <h4>Comp&eacute;tences d&eacute;velopp&eacute;es</h4>
-                                <p>
-                                    Administration Windows Server et Active Directory, gestion avanc&eacute;e des droits NTFS,
-                                    configuration r&eacute;seau (VLAN, DHCP, adressage IP), rigueur dans la documentation
-                                    et autonomie dans la gestion d&rsquo;une infrastructure multi-postes.
+                                    Infrastructure s&eacute;curis&eacute;e et document&eacute;e : gestion centralis&eacute;e des utilisateurs via AD, 
+                                    segmentation r&eacute;seau par VLAN, et mise en place d&rsquo;une base documentaire r&eacute;utilisable par l&rsquo;&eacute;quipe.
                                 </p>
                             </div>
 
@@ -578,28 +687,26 @@
                         <div class="timeline-content">
                             <div class="timeline-badge">1&egrave;re ann&eacute;e</div>
                             <h3 class="timeline-title">La Goutte d&rsquo;Ordinateur</h3>
+                            <p class="timeline-role">Technicien support &amp; maintenance informatique</p>
                             <span class="timeline-period">Mai &mdash; Juin 2025</span>
 
                             <div class="timeline-section">
                                 <h4>Contexte</h4>
                                 <p>
-                                    Premier stage r&eacute;alis&eacute; au sein de l&rsquo;association La Goutte d&rsquo;Ordinateur,
-                                    structure engag&eacute;e dans le reconditionnement informatique et l&rsquo;acc&egrave;s au num&eacute;rique
-                                    pour tous. D&eacute;couverte de l&rsquo;environnement professionnel et premi&egrave;res missions
-                                    de support technique et maintenance du parc informatique.
+                                    Premier stage au sein d&rsquo;une association sp&eacute;cialis&eacute;e dans le reconditionnement informatique 
+                                    et l&rsquo;inclusion num&eacute;rique. Prise en main de l&rsquo;environnement professionnel &agrave; travers 
+                                    des missions concr&egrave;tes de support et de maintenance.
                                 </p>
                             </div>
 
                             <div class="timeline-section">
-                                <h4>Missions techniques</h4>
+                                <h4>Missions</h4>
                                 <ul>
-                                    <li>Diagnostic mat&eacute;riel et r&eacute;paration de postes informatiques (fixes et portables)</li>
-                                    <li>D&eacute;ploiement de Windows 10 / Windows 11, y compris sur machines non compatibles</li>
-                                    <li>R&eacute;initialisation et mise &agrave; jour BIOS sur diff&eacute;rents mod&egrave;les de cartes m&egrave;res</li>
-                                    <li>Support utilisateurs : r&eacute;solution de probl&egrave;mes d&rsquo;impression r&eacute;seau, internet et Wi-Fi</li>
-                                    <li>Tests r&eacute;seau RJ45 et diagnostic c&acirc;blage</li>
-                                    <li>Reconditionnement mat&eacute;riel et pr&eacute;paration de postes pour redistribution</li>
-                                    <li>Installation et configuration de syst&egrave;mes d&rsquo;exploitation Linux (Mint, Ubuntu)</li>
+                                    <li>Diagnostic mat&eacute;riel et r&eacute;paration de postes fixes et portables</li>
+                                    <li>D&eacute;ploiement de Windows 10/11 et Linux (Mint, Ubuntu), y compris sur machines non compatibles</li>
+                                    <li>Mise &agrave; jour et r&eacute;initialisation BIOS sur diff&eacute;rents mod&egrave;les de cartes m&egrave;res</li>
+                                    <li>Support utilisateurs : impression r&eacute;seau, Wi-Fi, connectivit&eacute;</li>
+                                    <li>Tests et diagnostic c&acirc;blage RJ45, reconditionnement pour redistribution</li>
                                 </ul>
                             </div>
 
@@ -616,20 +723,10 @@
                             </div>
 
                             <div class="timeline-section">
-                                <h4>R&eacute;sultats obtenus</h4>
+                                <h4>R&eacute;sultats</h4>
                                 <p>
-                                    Remise en service de nombreux postes informatiques pour les b&eacute;n&eacute;ficiaires
-                                    de l&rsquo;association, r&eacute;duction du temps de pr&eacute;paration des machines
-                                    gr&acirc;ce &agrave; la ma&icirc;trise des outils de clonage et de d&eacute;ploiement.
-                                </p>
-                            </div>
-
-                            <div class="timeline-section">
-                                <h4>Comp&eacute;tences d&eacute;velopp&eacute;es</h4>
-                                <p>
-                                    Autonomie dans le diagnostic mat&eacute;riel, rigueur dans le suivi des interventions via GLPI,
-                                    ma&icirc;trise du d&eacute;ploiement multi-OS et d&eacute;veloppement des capacit&eacute;s
-                                    de communication avec les utilisateurs non techniques.
+                                    Remise en service d&rsquo;un grand nombre de postes pour les b&eacute;n&eacute;ficiaires de l&rsquo;association, 
+                                    avec une ma&icirc;trise progressive des outils de clonage et de d&eacute;ploiement multi-OS.
                                 </p>
                             </div>
 
@@ -646,107 +743,277 @@
         </section>
 
         <!-- ========================================
-             SECTION OPTIONS BTS SIO
-             Comparatif SISR vs SLAM
+             SECTION PROJET GSB
+             Projet de fin d'année
              ======================================== -->
-        <section id="options" class="section">
+        <section id="projet" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">04 &mdash; Formation</span>
-                    <h2 class="section-title">Options BTS SIO</h2>
+                    <span class="section-tag">05 &mdash; Projet</span>
+                    <h2 class="section-title">Projet de fin d&rsquo;ann&eacute;e</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
 
-                <p class="section-intro reveal">
-                    Le BTS SIO propose deux sp&eacute;cialisations distinctes. Mon choix de l&rsquo;option <strong>SISR</strong>
-                    s&rsquo;inscrit dans une logique de carri&egrave;re orient&eacute;e vers l&rsquo;administration d&rsquo;infrastructures
-                    et la s&eacute;curisation des syst&egrave;mes d&rsquo;information.
-                </p>
-
-                <div class="options-compare reveal">
-                    <!-- Carte SISR -->
-                    <div class="option-card option-sisr selected">
-                        <div class="option-badge">Mon choix</div>
-                        <div class="option-icon">
+                <div class="projet-gsb reveal">
+                    <div class="projet-header">
+                        <div class="projet-logo">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
-                                <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
-                                <line x1="6" y1="6" x2="6.01" y2="6"/>
-                                <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                <path d="M19 21V5a2 2 0 0 0-2-2H7a2 2 0 0 0-2 2v16"/>
+                                <path d="M3 21h18"/>
+                                <path d="M9 7h1"/>
+                                <path d="M9 11h1"/>
+                                <path d="M9 15h1"/>
+                                <path d="M14 7h1"/>
+                                <path d="M14 11h1"/>
+                                <path d="M14 15h1"/>
                             </svg>
                         </div>
-                        <h3>SISR</h3>
-                        <p class="option-full">Solutions d&rsquo;Infrastructure, Syst&egrave;mes et R&eacute;seaux</p>
-
-                        <ul class="option-list">
-                            <li>Administration des syst&egrave;mes (Windows Server, Linux)</li>
-                            <li>Configuration et maintenance des r&eacute;seaux</li>
-                            <li>Virtualisation et cloud computing</li>
-                            <li>Cybers&eacute;curit&eacute; et protection des donn&eacute;es</li>
-                            <li>Supervision et monitoring des infrastructures</li>
-                            <li>Gestion des services r&eacute;seau (DNS, DHCP, AD)</li>
-                        </ul>
-
-                        <div class="option-careers">
-                            <h4>D&eacute;bouch&eacute;s</h4>
-                            <div class="career-tags">
-                                <span>Administrateur syst&egrave;mes</span>
-                                <span>Technicien r&eacute;seau</span>
-                                <span>Responsable infrastructure</span>
-                                <span>Analyste SOC</span>
-                            </div>
+                        <div class="projet-title-block">
+                            <h3>GSB &mdash; Galaxy Swiss Bourdin</h3>
+                            <p class="projet-subtitle">Laboratoire pharmaceutique &mdash; Gestion de la flotte visite</p>
                         </div>
                     </div>
 
-                    <!-- Carte SLAM -->
-                    <div class="option-card option-slam">
-                        <div class="option-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
-                                <polyline points="16 18 22 12 16 6"/>
-                                <polyline points="8 6 2 12 8 18"/>
-                            </svg>
-                        </div>
-                        <h3>SLAM</h3>
-                        <p class="option-full">Solutions Logicielles et Applications M&eacute;tier</p>
-
-                        <ul class="option-list">
-                            <li>D&eacute;veloppement d&rsquo;applications web et mobiles</li>
-                            <li>Conception et gestion de bases de donn&eacute;es</li>
-                            <li>Programmation orient&eacute;e objet</li>
-                            <li>Int&eacute;gration et d&eacute;ploiement d&rsquo;applications</li>
-                            <li>Analyse des besoins et cahier des charges</li>
-                            <li>Tests et validation logicielle</li>
-                        </ul>
-
-                        <div class="option-careers">
-                            <h4>D&eacute;bouch&eacute;s</h4>
-                            <div class="career-tags">
-                                <span>D&eacute;veloppeur web</span>
-                                <span>Analyste programmeur</span>
-                                <span>Int&eacute;grateur</span>
-                                <span>Testeur QA</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="option-rationale reveal">
-                    <div class="rationale-icon" aria-hidden="true">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                            <circle cx="12" cy="12" r="10"/>
-                            <line x1="12" y1="16" x2="12" y2="12"/>
-                            <line x1="12" y1="8" x2="12.01" y2="8"/>
-                        </svg>
-                    </div>
-                    <div>
-                        <h4>Pourquoi SISR ?</h4>
+                    <div class="projet-description">
                         <p>
-                            Le choix de l&rsquo;option SISR correspond &agrave; mon projet professionnel d&rsquo;&eacute;volution
-                            vers un poste d&rsquo;administrateur syst&egrave;mes et r&eacute;seaux. L&rsquo;infrastructure IT
-                            est le socle de toute organisation num&eacute;rique, et ma&icirc;triser ces fondamentaux
-                            me permet de r&eacute;pondre aux enjeux de performance, de s&eacute;curit&eacute; et de disponibilit&eacute;
-                            que rencontrent les entreprises aujourd&rsquo;hui.
+                            <strong>Galaxy Swiss Bourdin (GSB)</strong> est un laboratoire pharmaceutique issu de la fusion
+                            entre le g&eacute;ant am&eacute;ricain Galaxy (sp&eacute;cialis&eacute; dans les maladies virales)
+                            et le conglom&eacute;rat europ&eacute;en Swiss Bourdin. L&rsquo;entreprise compte environ
+                            <strong>480 visiteurs m&eacute;dicaux</strong> en France m&eacute;tropolitaine et <strong>60 en outre-mer</strong>.
+                            Le site parisien accueille les fonctions administratives (RH, comptabilit&eacute;, direction, commercial)
+                            et les services techniques et scientifiques (labo-recherche, communication, juridique).
                         </p>
+                        <p>
+                            L&rsquo;infrastructure r&eacute;seau repose sur une <strong>segmentation en 12 VLANs</strong>,
+                            un environnement virtualis&eacute; avec <strong>2 hyperviseurs XCP-ng</strong> h&eacute;bergeant
+                            <strong>5 machines virtuelles</strong> (1 Windows 11, 2 Windows Server 2022, 2 appliances Xen Orchestra).
+                            La salle serveur s&eacute;curis&eacute;e au 6&egrave;me &eacute;tage dispose d&rsquo;un contr&ocirc;le d&rsquo;acc&egrave;s strict.
+                        </p>
+                    </div>
+
+                    <!-- Boutons Contexte et Documentation -->
+                    <div class="projet-buttons">
+                        <button class="btn btn-primary projet-btn" data-pdf="pdfs/contexte-gsb.pdf" data-label="Contexte du projet GSB" type="button">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <circle cx="12" cy="12" r="10"/>
+                                <line x1="12" y1="16" x2="12" y2="12"/>
+                                <line x1="12" y1="8" x2="12.01" y2="8"/>
+                            </svg>
+                            Contexte du projet
+                        </button>
+                        <button class="btn btn-outline projet-btn" data-pdf="pdfs/documentation-gsb.pdf" data-label="Documentation technique GSB" type="button">
+                            <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                                <line x1="16" y1="13" x2="8" y2="13"/>
+                                <line x1="16" y1="17" x2="8" y2="17"/>
+                                <polyline points="10 9 9 9 8 9"/>
+                            </svg>
+                            Documentation du projet
+                        </button>
+                    </div>
+
+                    <!-- Technologies utilisees -->
+                    <div class="projet-tech-logos">
+                        <h4>Technologies utilis&eacute;es</h4>
+                        <div class="tech-logos-grid">
+                            <div class="tech-logo-item">
+                                <img src="images/logos/cisco-logo.jpg" alt="Cisco" />
+                                <span>Cisco IOS</span>
+                            </div>
+                            <div class="tech-logo-item">
+                                <img src="images/logos/windows-server-logo.jpg" alt="Windows Server" />
+                                <span>Windows Server</span>
+                            </div>
+                            <div class="tech-logo-item">
+                                <img src="images/logos/linux-logo.jpg" alt="Linux" />
+                                <span>Linux</span>
+                            </div>
+                            <div class="tech-logo-item">
+                                <img src="images/logos/vmware-logo.png" alt="XCP-ng" />
+                                <span>XCP-ng</span>
+                            </div>
+                            <div class="tech-logo-item">
+                                <img src="images/logos/security-logo.jpg" alt="Stormshield" />
+                                <span>Stormshield</span>
+                            </div>
+                            <div class="tech-logo-item">
+                                <img src="images/logos/active-directory-logo.jpg" alt="Active Directory" />
+                                <span>Active Directory</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Situations professionnelles -->
+                    <div class="projet-sp-section">
+                        <h4 class="projet-sp-title">Situations Professionnelles r&eacute;alis&eacute;es</h4>
+                        <div class="projet-sp-grid">
+                            <div class="projet-sp-card">
+                                <div class="projet-sp-header">
+                                    <span class="projet-sp-number">SP 01</span>
+                                    <h5>D&eacute;ploiement VPN avec Stormshield</h5>
+                                </div>
+                                <div class="projet-sp-context">
+                                    <strong>Contexte :</strong> Les visiteurs m&eacute;dicaux terrain de GSB doivent acc&eacute;der &agrave; leurs sessions internes depuis l&rsquo;ext&eacute;rieur.
+                                </div>
+                                <div class="projet-sp-realisations">
+                                    <strong>R&eacute;alisations :</strong> Ajout d&rsquo;un second routeur Cisco d&eacute;di&eacute; VPN (172.18.0.3), d&eacute;ploiement Stormshield (172.18.0.4) entre ce routeur et le Switch L3 via VLAN 400, configuration tunnel OpenVPN, NAT statique UDP 1194.
+                                </div>
+                                <div class="projet-sp-tags">
+                                    <span>Stormshield</span>
+                                    <span>OpenVPN</span>
+                                    <span>Cisco IOS</span>
+                                    <span>NAT statique</span>
+                                    <span>VLAN 400</span>
+                                    <span>Cybers&eacute;curit&eacute;</span>
+                                </div>
+                            </div>
+
+                            <div class="projet-sp-card">
+                                <div class="projet-sp-header">
+                                    <span class="projet-sp-number">SP 02</span>
+                                    <h5>Installation borne Wi-Fi Aruba APIN0205</h5>
+                                </div>
+                                <div class="projet-sp-context">
+                                    <strong>Contexte :</strong> GSB a besoin d&rsquo;un Wi-Fi pour les visiteurs (VLAN 150) et l&rsquo;&eacute;quipe d&eacute;veloppement (VLAN 50), isol&eacute;s l&rsquo;un de l&rsquo;autre.
+                                </div>
+                                <div class="projet-sp-realisations">
+                                    <strong>R&eacute;alisations :</strong> R&eacute;initialisation borne (purgeenv + reboot), port switch en trunk VLAN 50+150, cr&eacute;ation 2 SSID (Visiteurs / Development), configuration DHCP relay ip helper-address sur VLAN 150.
+                                </div>
+                                <div class="projet-sp-tags">
+                                    <span>Aruba APIN0205</span>
+                                    <span>VLAN 50/150</span>
+                                    <span>Trunk 802.1Q</span>
+                                    <span>DHCP Relay</span>
+                                    <span>WPA2/3</span>
+                                    <span>Multi-SSID</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="projet-grid">
+                        <div class="projet-card">
+                            <div class="projet-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <rect x="2" y="2" width="20" height="8" rx="2" ry="2"/>
+                                    <rect x="2" y="14" width="20" height="8" rx="2" ry="2"/>
+                                    <line x1="6" y1="6" x2="6.01" y2="6"/>
+                                    <line x1="6" y1="18" x2="6.01" y2="18"/>
+                                </svg>
+                            </div>
+                            <h4>Infrastructure r&eacute;seau</h4>
+                            <ul>
+                                <li>Architecture segment&eacute;e en 12 VLANs</li>
+                                <li>Routage inter-VLAN avec ACL de filtrage</li>
+                                <li>Services DNS, DHCP, Active Directory</li>
+                                <li>NAT dynamique pour acc&egrave;s Internet</li>
+                            </ul>
+                        </div>
+
+                        <div class="projet-card">
+                            <div class="projet-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                                </svg>
+                            </div>
+                            <h4>S&eacute;curit&eacute;</h4>
+                            <ul>
+                                <li>Acc&egrave;s restreints &agrave; la salle serveur</li>
+                                <li>Proxy / Firewall (ProxSILAB)</li>
+                                <li>Redondance RAID, clustering</li>
+                                <li>Tol&eacute;rance aux pannes maximale</li>
+                            </ul>
+                        </div>
+
+                        <div class="projet-card">
+                            <div class="projet-card-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true">
+                                    <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                    <line x1="8" y1="21" x2="16" y2="21"/>
+                                    <line x1="12" y1="17" x2="12" y2="21"/>
+                                </svg>
+                            </div>
+                            <h4>&Eacute;quipements virtualis&eacute;s</h4>
+                            <ul>
+                                <li>2 hyperviseurs XCP-ng</li>
+                                <li>5 machines virtuelles (VM)</li>
+                                <li>2 serveurs Windows Server 2022</li>
+                                <li>2 appliances Xen Orchestra (XOA)</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="projet-missions">
+                        <h4>Missions r&eacute;alis&eacute;es</h4>
+                        <div class="missions-list">
+                            <div class="mission-item">
+                                <span class="mission-number">01</span>
+                                <div>
+                                    <strong>Segmentation r&eacute;seau VLAN</strong>
+                                    <p>Configuration de 12 VLANs pour isoler les services (RH, Commercial, Labo-Recherche, Visiteurs, Serveurs, etc.)</p>
+                                </div>
+                            </div>
+                            <div class="mission-item">
+                                <span class="mission-number">02</span>
+                                <div>
+                                    <strong>Routage &amp; ACL</strong>
+                                    <p>Mise en place du routage inter-VLAN avec ACL de filtrage pour s&eacute;curiser les communications</p>
+                                </div>
+                            </div>
+                            <div class="mission-item">
+                                <span class="mission-number">03</span>
+                                <div>
+                                    <strong>Virtualisation XCP-ng</strong>
+                                    <p>D&eacute;ploiement de 2 hyperviseurs XCP-ng avec 5 VM (Windows Server 2022, Windows 11, Xen Orchestra)</p>
+                                </div>
+                            </div>
+                            <div class="mission-item">
+                                <span class="mission-number">04</span>
+                                <div>
+                                    <strong>Services r&eacute;seau</strong>
+                                    <p>Configuration DNS, DHCP avec relais, Active Directory et NAT dynamique pour acc&egrave;s Internet</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ========================================
+             SECTION GALERIE PHOTOS - CAROUSEL
+             ======================================== -->
+        <section id="galerie" class="section">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">06 &mdash; Galerie</span>
+                    <h2 class="section-title">Galerie photos</h2>
+                </div>
+                
+                <p class="section-intro reveal">Quelques visuels issus de mes environnements de travail et de mes projets.</p>
+
+                <div class="carousel-wrapper reveal" style="margin-top: 32px;">
+                    <div class="carousel" id="mainCarousel" role="region" aria-label="Galerie de photos" aria-live="polite">
+
+                        <!-- Les slides sont injectées dynamiquement par script.js -->
+                        <div class="carousel-track" id="carouselTrack"></div>
+
+                        <!-- Fleches de navigation -->
+                        <button class="carousel-arrow carousel-arrow-prev" id="carouselPrev" aria-label="Slide precedente">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="15 18 9 12 15 6"/>
+                            </svg>
+                        </button>
+                        <button class="carousel-arrow carousel-arrow-next" id="carouselNext" aria-label="Slide suivante">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polyline points="9 18 15 12 9 6"/>
+                            </svg>
+                        </button>
+
+                        <!-- Points indicateurs -->
+                        <div class="carousel-dots" id="carouselDots" role="tablist" aria-label="Navigation du carousel"></div>
                     </div>
                 </div>
             </div>
@@ -759,7 +1026,7 @@
         <section id="veille" class="section section-alt">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">05 &mdash; Veille</span>
+                    <span class="section-tag">07 &mdash; Veille</span>
                     <h2 class="section-title">Veille Technologique</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
@@ -794,25 +1061,6 @@
                         des t&eacute;raoctets de donn&eacute;es provenant de milliers de capteurs.
                         L&rsquo;IA exploite ces donn&eacute;es pour la maintenance pr&eacute;dictive, l&rsquo;optimisation
                         des trajectoires et l&rsquo;am&eacute;lioration de la s&eacute;curit&eacute; des vols.
-                    </p>
-                </div>
-
-                <!-- Bloc Réglementation -->
-                <div class="veille-block reveal">
-                    <div class="veille-block-header">
-                        <div class="block-icon" aria-hidden="true">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
-                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                            </svg>
-                        </div>
-                        <h3>R&eacute;glementation &amp; RGPD</h3>
-                    </div>
-                    <p>
-                        Le <strong>R&egrave;glement G&eacute;n&eacute;ral sur la Protection des Donn&eacute;es (RGPD)</strong>,
-                        entr&eacute; en vigueur en 2018, encadre la collecte et le traitement des donn&eacute;es personnelles
-                        en Europe. Dans le secteur a&eacute;ronautique, cela concerne les donn&eacute;es des passagers,
-                        des &eacute;quipages et des employ&eacute;s. Les entreprises doivent garantir la transparence,
-                        le consentement et la s&eacute;curit&eacute; des donn&eacute;es collect&eacute;es.
                     </p>
                 </div>
 
@@ -941,13 +1189,13 @@
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">06 &mdash; Contact</span>
+                    <span class="section-tag">08 &mdash; Contact</span>
                     <h2 class="section-title">Me contacter</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
 
-                <div class="contact-grid">
-                    <div class="contact-info reveal">
+                <div class="contact-grid contact-section-animated" id="contactAnimated">
+                    <div class="contact-info">
                         <h3>Restons en contact</h3>
                         <p>
                             N&rsquo;h&eacute;sitez pas &agrave; me contacter pour toute question, proposition de stage
@@ -964,7 +1212,7 @@
                         </div>
                     </div>
 
-                    <form class="contact-form reveal" id="contactForm" novalidate>
+                    <form class="contact-form" id="contactForm" novalidate>
                         <div class="form-group">
                             <label for="formName">Nom complet</label>
                             <input type="text" id="formName" name="name" placeholder="Votre nom" required autocomplete="name" aria-required="true">
@@ -1025,6 +1273,17 @@
     </main>
 
     <!-- Script principal -->
+    <!-- ======== LIGHTBOX IMAGE ======== -->
+    <div id="imgLightbox" class="img-lightbox" role="dialog" aria-modal="true" aria-label="Image en plein ecran" aria-hidden="true">
+        <div class="img-lightbox-backdrop"></div>
+        <div class="img-lightbox-box">
+            <button class="img-lightbox-close" id="imgLightboxClose" aria-label="Fermer">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+            </button>
+            <img id="imgLightboxImg" src="" alt="" class="img-lightbox-img" />
+            <p id="imgLightboxCaption" class="img-lightbox-caption"></p>
+        </div>
+    </div>
     <!-- ======== MODAL PDF VIEWER ======== -->
     <div id="pdfModal" class="pdf-modal" role="dialog" aria-modal="true" aria-labelledby="pdfModalTitle" aria-hidden="true">
         <div class="pdf-modal-backdrop"></div>
