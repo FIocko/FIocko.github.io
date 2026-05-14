@@ -2933,3 +2933,280 @@ strong {
     grid-template-columns: 1fr;
   }
 }
+
+/* ============================================
+   PROJETS PERSONNELS
+   ============================================ */
+.projets-perso-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+  margin-top: 32px;
+}
+
+.projet-perso-card {
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  overflow: hidden;
+  transition: all var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.projet-perso-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 8px 32px var(--color-glow);
+  transform: translateY(-4px);
+}
+
+.projet-perso-image {
+  position: relative;
+  width: 100%;
+  height: 200px;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+}
+
+.projet-perso-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.4s ease;
+}
+
+.projet-perso-card:hover .projet-perso-image img {
+  transform: scale(1.05);
+}
+
+.projet-perso-content {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  flex: 1;
+}
+
+.projet-perso-title {
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.projet-perso-desc {
+  font-size: 14px;
+  color: var(--color-text-light);
+  line-height: 1.6;
+  margin: 0;
+  flex: 1;
+}
+
+.projet-perso-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+
+.projet-perso-tags span {
+  padding: 4px 12px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 500;
+}
+
+.projet-perso-btn {
+  margin-top: auto;
+  align-self: flex-start;
+}
+
+/* Modale Projets Personnels */
+.projet-perso-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.projet-perso-modal.is-open {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.projet-perso-modal-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+}
+
+.projet-perso-modal-box {
+  position: relative;
+  z-index: 1;
+  background: var(--color-bg);
+  border: 1px solid var(--color-border);
+  border-radius: 16px;
+  width: 100%;
+  max-width: 900px;
+  max-height: 90vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 24px 80px rgba(0, 0, 0, 0.4);
+  transform: scale(0.95) translateY(16px);
+  transition: transform 0.25s ease;
+  overflow: hidden;
+}
+
+.projet-perso-modal.is-open .projet-perso-modal-box {
+  transform: scale(1) translateY(0);
+}
+
+.projet-perso-modal-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 20px 24px;
+  border-bottom: 1px solid var(--color-border);
+  background: var(--color-bg-alt);
+  flex-shrink: 0;
+}
+
+.projet-perso-modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0;
+}
+
+.projet-perso-modal-close {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid var(--color-border);
+  border-radius: 10px;
+  cursor: pointer;
+  color: var(--color-text-light);
+  transition: all var(--transition);
+  flex-shrink: 0;
+}
+
+.projet-perso-modal-close:hover {
+  border-color: #ef4444;
+  color: #ef4444;
+  background: rgba(239, 68, 68, 0.08);
+}
+
+.projet-perso-modal-close svg {
+  width: 18px;
+  height: 18px;
+}
+
+.projet-perso-modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.projet-perso-modal-gallery {
+  width: 100%;
+  border-radius: 12px;
+  overflow: hidden;
+  background: var(--color-bg-alt);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.projet-perso-modal-img {
+  max-width: 100%;
+  max-height: 60vh;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  display: block;
+}
+
+.projet-perso-modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.projet-perso-modal-desc {
+  font-size: 15px;
+  color: var(--color-text-light);
+  line-height: 1.8;
+}
+
+.projet-perso-modal-desc p {
+  margin: 0 0 12px;
+}
+
+.projet-perso-modal-desc p:last-child {
+  margin-bottom: 0;
+}
+
+.projet-perso-modal-stack h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--color-text);
+  margin: 0 0 12px;
+}
+
+.projet-perso-modal-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.projet-perso-modal-tags span {
+  padding: 6px 16px;
+  background: var(--color-primary-light);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+}
+
+/* Responsive Projets Personnels */
+@media (max-width: 767px) {
+  .projets-perso-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .projet-perso-image {
+    height: 180px;
+  }
+
+  .projet-perso-content {
+    padding: 20px;
+  }
+
+  .projet-perso-modal-body {
+    padding: 16px;
+  }
+
+  .projet-perso-modal-img {
+    max-height: 300px;
+  }
+}

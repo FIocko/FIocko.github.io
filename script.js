@@ -723,6 +723,7 @@
     initRSSFeed();
     initCarousel();
     initLightbox();
+    initProjetsPerso();
     updateActiveNav();
   }
 
@@ -1001,6 +1002,100 @@ function initLightbox() {
   document.addEventListener('keydown', function(e) {
     if (e.key === 'Escape' && lightbox.classList.contains('is-open')) {
       closeLightbox();
+    }
+  });
+}
+
+/* ================================================================
+   PROJETS PERSONNELS — Modale détaillée
+   ================================================================ */
+function initProjetsPerso() {
+  const modal     = document.getElementById('projetPersoModal');
+  const titleEl   = document.getElementById('projetPersoModalTitle');
+  const imgEl     = document.getElementById('projetPersoModalImg');
+  const descEl    = document.getElementById('projetPersoModalDesc');
+  const tagsEl    = document.getElementById('projetPersoModalTags');
+  const closeBtn  = document.getElementById('projetPersoModalClose');
+  const backdrop  = modal ? modal.querySelector('.projet-perso-modal-backdrop') : null;
+
+  if (!modal) return;
+
+  // Données des projets
+  const projetsData = {
+    'carto': {
+      title: 'Visualiseur cartographique',
+      image: 'images/projets/carto.png',
+      description: '<p>Projet de visualisation web d\'un <strong>réseau de transport urbain</strong> à partir de 326 fichiers DWG séparés (un par station), représentant une surface de 40×40 km avec une précision centimétrique.</p><p><strong>Phase 1 — AutoCAD :</strong> Développement de scripts LSP pour corriger en batch les unités (INSUNITS), les points d\'insertion (INSBASE) et supprimer les entités parasites sur chaque fichier. Fusion de l\'ensemble en un fichier maître de 700 Mo / 19 millions d\'objets.</p><p><strong>Phase 2 — Conversion :</strong> Export DXF vers GeoJSON (2,69 Go) via ogr2ogr, génération de tuiles vectorielles .pbf avec Python, résolution du problème de projection géographique via calcul d\'un point de calage GPS.</p><p><strong>Phase 3 — Web :</strong> Serveur HTTP Python local, frontend MapLibre GL JS avec rendu WebGL, gestion des calques par nomenclature (TUL = tunnels, VIL = viaducs, QXL = quais), couleurs par ligne, filtrage des textes parasites.</p>',
+      tags: ['AutoCAD LSP', 'Python', 'MapLibre GL JS', 'GeoJSON', 'Tuiles vectorielles', 'ogr2ogr']
+    },
+    'cinema': {
+      title: 'Remise en service d\'une salle de projection',
+      image: 'images/projets/cinema.jpeg',
+      description: '<p>Remise en fonctionnement complète d\'un <strong>système de projection cinéma numérique</strong>, de zéro jusqu\'à la première projection.</p><p>Diagnostic, câblage et configuration de la chaîne de projection : <strong>projecteur NEC NC2000C</strong> et <strong>serveur Doremi</strong> pour la lecture des contenus DCP.</p><p>Résolution des problèmes liés aux <strong>KDM</strong> (Key Delivery Messages) nécessaires pour le déverrouillage des films chiffrés, jusqu\'à l\'obtention d\'une projection fonctionnelle.</p>',
+      tags: ['NEC NC2000C', 'Doremi', 'DCP', 'KDM']
+    },
+    'camera': {
+      title: 'Réseau domestique isolé et caméra IP',
+      image: 'images/projets/camera.jpeg',
+      description: '<p>Mise en place d\'un <strong>réseau local isolé</strong> à partir d\'une seconde Livebox 6 non connectée à la fibre, utilisée uniquement comme routeur et point d\'accès Wi-Fi autonome. La caméra IP Hikvision y est rattachée sur ce segment dédié, sans aucune connexion vers Internet.</p><p>Installation de la caméra entièrement à la main : <strong>câblage RJ45 manuel</strong> depuis les fils dénudés, correspondance des couleurs, test de continuité au multimètre, alimentation 12V, configuration réseau via <strong>SADP</strong>, accès LAN uniquement sans redirection de ports.</p><p><strong>Reprogrammation de la puce BIOS</strong> d\'un PC portable Unowhy bloqué via un programmateur CH341A, afin de le remettre en service comme poste de réception du flux vidéo de la caméra. Lecture du dump mémoire SPI, identification de la puce, résolution des problèmes de tension, reprogrammation réussie.</p>',
+      tags: ['Hikvision', 'RJ45', 'DHCP', 'Livebox', 'CH341A', 'BIOS', 'SPI']
+    },
+    'ia': {
+      title: 'Agent IA local',
+      image: 'images/projets/ia.png',
+      description: '<p>Mise en place d\'un <strong>agent IA local</strong> tournant sur machine personnelle sous Windows, connecté à Telegram pour une interaction à distance.</p><p>Installation et configuration d\'<strong>OpenClaw</strong> comme gateway, création d\'un bot Telegram via BotFather, pairing avec l\'API Telegram, intégration d\'un modèle <strong>Gemma</strong> via <strong>LM Studio</strong> pour le traitement du langage naturel.</p><p>Résultat : un agent capable de recevoir et répondre à des messages Telegram en s\'appuyant sur un LLM hébergé localement, <strong>aucune donnée ne quitte la machine</strong>.</p>',
+      tags: ['OpenClaw', 'API Telegram', 'LLM', 'Gemma', 'LM Studio', 'Windows']
+    }
+  };
+
+  function openModal(projectId) {
+    const data = projetsData[projectId];
+    if (!data) return;
+
+    titleEl.textContent = data.title;
+    imgEl.src = data.image;
+    imgEl.alt = data.title;
+    descEl.innerHTML = data.description;
+
+    // Générer les tags
+    tagsEl.innerHTML = '';
+    data.tags.forEach(function(tag) {
+      const span = document.createElement('span');
+      span.textContent = tag;
+      tagsEl.appendChild(span);
+    });
+
+    modal.classList.add('is-open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    closeBtn.focus();
+  }
+
+  function closeModal() {
+    modal.classList.remove('is-open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+  }
+
+  // Clic sur les boutons "Voir le projet"
+  document.querySelectorAll('.projet-perso-btn').forEach(function(btn) {
+    btn.addEventListener('click', function(e) {
+      e.preventDefault();
+      const card = btn.closest('.projet-perso-card');
+      const projectId = card ? card.dataset.project : null;
+      if (projectId) {
+        openModal(projectId);
+      }
+    });
+  });
+
+  // Fermeture
+  if (closeBtn)  closeBtn.addEventListener('click', closeModal);
+  if (backdrop)  backdrop.addEventListener('click', closeModal);
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'Escape' && modal.classList.contains('is-open')) {
+      closeModal();
     }
   });
 }

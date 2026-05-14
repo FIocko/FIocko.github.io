@@ -94,6 +94,14 @@
                 </a>
             </li>
             <li>
+                <a href="#projets-perso" class="nav-link" data-section="projets-perso" aria-label="Projets Personnels">
+                    <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/>
+                    </svg>
+                    <span class="nav-text">Projets Perso</span>
+                </a>
+            </li>
+            <li>
                 <a href="#galerie" class="nav-link" data-section="galerie" aria-label="Galerie Photos">
                     <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                         <rect x="3" y="3" width="18" height="18" rx="2" ry="2"/>
@@ -983,12 +991,161 @@
         </section>
 
         <!-- ========================================
+             SECTION PROJETS PERSONNELS
+             Projets r&eacute;alis&eacute;s en dehors du cursus
+             ======================================== -->
+        <section id="projets-perso" class="section section-alt">
+            <div class="container">
+                <div class="section-header reveal">
+                    <span class="section-tag">06 &mdash; Projets</span>
+                    <h2 class="section-title">Projets Personnels</h2>
+                    <div class="section-line" aria-hidden="true"></div>
+                </div>
+
+                <p class="section-intro reveal">
+                    D&eacute;couvrez mes projets r&eacute;alis&eacute;s en dehors du cursus scolaire, t&eacute;moignant de ma curiosit&eacute; 
+                    et de mon investissement personnel dans l&rsquo;apprentissage de nouvelles technologies.
+                </p>
+
+                <div class="projets-perso-grid reveal">
+                    <!-- Projet 1: Visualiseur cartographique -->
+                    <article class="projet-perso-card" data-project="carto">
+                        <div class="projet-perso-image">
+                            <img src="images/projets/carto.png" alt="Visualiseur cartographique" />
+                        </div>
+                        <div class="projet-perso-content">
+                            <h3 class="projet-perso-title">Visualiseur cartographique</h3>
+                            <p class="projet-perso-desc">Fusion de 326 fichiers DWG (un par station) en une carte web interactive avec rendu WebGL et tuiles vectorielles.</p>
+                            <div class="projet-perso-tags">
+                                <span>AutoCAD LSP</span>
+                                <span>Python</span>
+                                <span>MapLibre GL JS</span>
+                                <span>ogr2ogr</span>
+                            </div>
+                            <button class="btn btn-outline projet-perso-btn" type="button" aria-label="Voir le projet Visualiseur cartographique">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Voir le projet
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Projet 2: Remise en service d'une salle de projection -->
+                    <article class="projet-perso-card" data-project="cinema">
+                        <div class="projet-perso-image">
+                            <img src="images/projets/cinema.jpeg" alt="Remise en service d'une salle de projection" />
+                        </div>
+                        <div class="projet-perso-content">
+                            <h3 class="projet-perso-title">Remise en service d&rsquo;une salle de projection</h3>
+                            <p class="projet-perso-desc">Remise en fonctionnement d&rsquo;un syst&egrave;me de projection cin&eacute;ma num&eacute;rique de z&eacute;ro jusqu&rsquo;&agrave; la premi&egrave;re projection.</p>
+                            <div class="projet-perso-tags">
+                                <span>NEC NC2000C</span>
+                                <span>Doremi</span>
+                                <span>DCP</span>
+                                <span>KDM</span>
+                            </div>
+                            <button class="btn btn-outline projet-perso-btn" type="button" aria-label="Voir le projet Remise en service d'une salle de projection">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Voir le projet
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Projet 3: R&eacute;seau domestique isol&eacute; et cam&eacute;ra IP -->
+                    <article class="projet-perso-card" data-project="camera">
+                        <div class="projet-perso-image">
+                            <img src="images/projets/camera.jpeg" alt="R&eacute;seau domestique isol&eacute; et cam&eacute;ra IP" />
+                        </div>
+                        <div class="projet-perso-content">
+                            <h3 class="projet-perso-title">R&eacute;seau domestique isol&eacute; et cam&eacute;ra IP</h3>
+                            <p class="projet-perso-desc">R&eacute;seau local isol&eacute; mont&eacute; avec une seconde Livebox 6 hors ligne, cam&eacute;ra IP Hikvision c&acirc;bl&eacute;e manuellement, et reprogrammation de puce BIOS.</p>
+                            <div class="projet-perso-tags">
+                                <span>Hikvision</span>
+                                <span>RJ45</span>
+                                <span>Livebox</span>
+                                <span>CH341A</span>
+                            </div>
+                            <button class="btn btn-outline projet-perso-btn" type="button" aria-label="Voir le projet R&eacute;seau domestique isol&eacute; et cam&eacute;ra IP">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Voir le projet
+                            </button>
+                        </div>
+                    </article>
+
+                    <!-- Projet 4: Agent IA local -->
+                    <article class="projet-perso-card" data-project="ia">
+                        <div class="projet-perso-image">
+                            <img src="images/projets/ia.png" alt="Agent IA local" />
+                        </div>
+                        <div class="projet-perso-content">
+                            <h3 class="projet-perso-title">Agent IA local</h3>
+                            <p class="projet-perso-desc">Agent IA local connect&eacute; &agrave; Telegram via API, mod&egrave;le Gemma h&eacute;berg&eacute; en local, aucune donn&eacute;e ne quitte la machine.</p>
+                            <div class="projet-perso-tags">
+                                <span>OpenClaw</span>
+                                <span>API Telegram</span>
+                                <span>Gemma</span>
+                                <span>LM Studio</span>
+                            </div>
+                            <button class="btn btn-outline projet-perso-btn" type="button" aria-label="Voir le projet Agent IA local">
+                                <svg class="btn-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                                Voir le projet
+                            </button>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Modale Projets Personnels -->
+        <div class="projet-perso-modal" id="projetPersoModal" role="dialog" aria-modal="true" aria-hidden="true" aria-labelledby="projetPersoModalTitle">
+            <div class="projet-perso-modal-backdrop"></div>
+            <div class="projet-perso-modal-box">
+                <div class="projet-perso-modal-header">
+                    <h3 class="projet-perso-modal-title" id="projetPersoModalTitle">Titre du projet</h3>
+                    <button class="projet-perso-modal-close" id="projetPersoModalClose" aria-label="Fermer la modale">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                            <line x1="18" y1="6" x2="6" y2="18"/>
+                            <line x1="6" y1="6" x2="18" y2="18"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="projet-perso-modal-body">
+                    <div class="projet-perso-modal-gallery" id="projetPersoModalGallery">
+                        <img src="" alt="" class="projet-perso-modal-img" id="projetPersoModalImg" />
+                    </div>
+                    <div class="projet-perso-modal-content">
+                        <div class="projet-perso-modal-desc" id="projetPersoModalDesc">
+                            <!-- Description compl&egrave;te inject&eacute;e dynamiquement -->
+                        </div>
+                        <div class="projet-perso-modal-stack">
+                            <h4>Stack technique</h4>
+                            <div class="projet-perso-modal-tags" id="projetPersoModalTags">
+                                <!-- Tags inject&eacute;s dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- ========================================
              SECTION GALERIE PHOTOS - CAROUSEL
              ======================================== -->
         <section id="galerie" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">06 &mdash; Galerie</span>
+                    <span class="section-tag">07 &mdash; Galerie</span>
                     <h2 class="section-title">Galerie photos</h2>
                 </div>
                 
@@ -1026,7 +1183,7 @@
         <section id="veille" class="section section-alt">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">07 &mdash; Veille</span>
+                    <span class="section-tag">08 &mdash; Veille</span>
                     <h2 class="section-title">Veille Technologique</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
@@ -1189,7 +1346,7 @@
         <section id="contact" class="section">
             <div class="container">
                 <div class="section-header reveal">
-                    <span class="section-tag">08 &mdash; Contact</span>
+                    <span class="section-tag">09 &mdash; Contact</span>
                     <h2 class="section-title">Me contacter</h2>
                     <div class="section-line" aria-hidden="true"></div>
                 </div>
